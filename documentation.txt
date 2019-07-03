@@ -1,0 +1,6 @@
+General Vue.js knowledge:
+
+dynamic components can be created by either having other full-fledged components called to be displayed as the appropriate time https://vuejs.org/v2/guide/components-dynamic-async.html, or by having an object that contains all the information for the various components
+i) https://jsfiddle.net/hv2dbu5x/
+ii) https://jsfiddle.net/chrisvfritz/b2qj69o1/
+

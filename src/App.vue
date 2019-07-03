@@ -16,18 +16,20 @@
     </v-toolbar>
 
     <v-content>
-      <HelloWorld/>
+      <MyDynamicPony/>
     </v-content>
   </v-app>
 </template>
 
 <script>
 import HelloWorld from './components/HelloWorld';
+import MyDynamicPony from './components/MyDynamicPony';
 
 export default {
   name: 'App',
   components: {
     HelloWorld,
+    MyDynamicPony,
   },
   data () {
     return {
