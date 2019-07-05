@@ -8,6 +8,7 @@
         <div class="pony-container">
           <button @click="showWhich = 'RainbowPony'">Show Rainbow Pony</button>
           <button @click="showWhich = 'PurplePony'">Show Purple Pony</button>
+          <button @click="showWhich = 'YellowPony'">Show Yellow Pony</button>
           <component v-bind:is='dynamicComponent'></component>
           <component v-bind:is='showWhich'></component>
         </div>
@@ -15,18 +16,22 @@
     </v-layout>
   </v-container>
 </template>
+
 <script>
 import RainbowPony from '@/components/ponies/RainbowPony';
 import PurplePony from '@/components/ponies/PurplePony';
+import YellowPony from '@/components/ponies/YellowPony';
 
 export default {
   name: 'MyDynamicPony',
+  components: {
+    RainbowPony,
+    PurplePony,
+    YellowPony,
+  },
   data() {
     return {
       showWhich: 'RainbowPony',
-      dynamicComponent: {
-        template: `<p>Wheee</p>`
-      },
     }
   }
 };
