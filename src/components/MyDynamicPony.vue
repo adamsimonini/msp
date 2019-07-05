@@ -43,6 +43,12 @@ button {
   color: white;
   padding: 0 2%;
   margin: 2%;
+  border: 1px solid white;
+}
+button:hover {
+  background: white;
+  color: black;
+  border: 1px solid black;
 }
 .pony-container {
   height: 80vh; 
