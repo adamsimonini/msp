@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/18b19f76-a5e0-492c-90c3-dfe95b41b69c/deploy-status)](https://app.netlify.com/sites/msp-program/deploys)
+
 # msr
 
 ## Project setup
