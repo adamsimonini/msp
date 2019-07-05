@@ -5,35 +5,41 @@
       wrap
     >
       <v-flex xs12>
-
-          <div>
-            <button @click="showWhich = 'RainbowPony'">Show Rainbow Pony</button>
-            <button @click="showWhich = 'PurplePony'">Show Purple Pony</button>
-            <component :is="showWhich"></component>
-          </div>
-
-        <p>I AM A DYNAMIC PONY!!!</p>
-        <v-img
-          :src="require('@image/rainbow-pony.png')"
-          class="my-3"
-          contain
-          height="200"
-        ></v-img>
+        <div class="pony-container">
+          <button @click="showWhich = 'RainbowPony'">Show Rainbow Pony</button>
+          <button @click="showWhich = 'PurplePony'">Show Purple Pony</button>
+          <component v-bind:is='dynamicComponent'></component>
+          <component v-bind:is='showWhich'></component>
+        </div>
       </v-flex>
     </v-layout>
   </v-container>
 </template>
 <script>
-import RainbowPony from './ponies/RainbowPony';
-import PurplePony from './ponies/PurplePony';
+import RainbowPony from '@/components/ponies/RainbowPony';
+import PurplePony from '@/components/ponies/PurplePony';
 
 export default {
-  data: () => ({
-    showWhich: 'RainbowPony',
-  }),
+  name: 'MyDynamicPony',
+  data() {
+    return {
+      showWhich: 'RainbowPony',
+      dynamicComponent: {
+        template: `<p>Wheee</p>`
+      },
+    }
+  }
 };
 </script>
 
 <style>
-
+button {
+  background: black;
+  color: white;
+  padding: 0 2%;
+  margin: 2%;
+}
+.pony-container {
+  height: 80vh; 
+}
 </style>

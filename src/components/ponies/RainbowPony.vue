@@ -11,10 +11,8 @@
 </template>
 
 <script>
-
 export default {
-  data: () => ({
-  }),
+  name: 'RainbowPony',
 };
 </script>
 

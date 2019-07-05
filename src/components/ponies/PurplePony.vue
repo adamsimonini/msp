@@ -13,8 +13,7 @@
 <script>
 
 export default {
-  data: () => ({
-  }),
+    name: 'PurplePony',
 };
 </script>
 
