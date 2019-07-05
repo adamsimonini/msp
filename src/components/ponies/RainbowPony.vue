@@ -1,6 +1,6 @@
 <template>
     <div>
-        <p>I AM A DYNAMIC PONY!!!</p>
+        <p>I AM THE RAINBOW PONY!!!</p>
         <v-img
           :src="require('@image/rainbow-pony.png')"
           class="my-3"
