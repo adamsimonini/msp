@@ -32,8 +32,8 @@ export default {
   data() {
     return {
       showWhich: 'RainbowPony',
-    }
-  }
+    };
+  },
 };
 </script>
 
