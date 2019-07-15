@@ -10,6 +10,9 @@ import Ponies from '@/components/MyDynamicPony.vue';
 
 Vue.use(Router);
 
+const isLoggedIn: boolean = false;
+
+
 export default new Router({
   mode: 'history',
   base: process.env.BASE_URL,
@@ -17,27 +20,62 @@ export default new Router({
     {
       path: '/tasks',
       name: 'tasks-all',
-      component: TasksAll
+      component: TasksAll,
+      beforeEnter: (to, from, next) => {
+        if(isLoggedIn){
+          next();
+        } else {
+          next('/login');
+        }
+      }
     },
     {
       path: '/tasks/new',
       name: 'tasks-create',
-      component: TasksCreate
+      component: TasksCreate,
+      beforeEnter: (to, from, next) => {
+        if(isLoggedIn){
+          next();
+        } else {
+          next('/login');
+        }
+      }
     },
     {
       path: '/tasks/:id',
       name: 'tasks-edit',
-      component: TasksEdit
+      component: TasksEdit,
+      beforeEnter: (to, from, next) => {
+        if(isLoggedIn){
+          next();
+        } else {
+          next('/login');
+        }
+      }
     },
     {
       path: '/register',
       name: 'register',
-      component: Register
+      component: Register,
+      beforeEnter: (to, from, next) => {
+        if(isLoggedIn){
+          next();
+        } else {
+          next('/login');
+        }
+      }
     },
     {
       path: '/login',
       name: 'login',
-      component: Login
+      component: Login,
+      beforeEnter: (to, from, next) => {
+        if(!isLoggedIn){
+          next();
+        } else {
+          next('/ponies');
+        }
+      }
     },
     {
       path: '/ponies',

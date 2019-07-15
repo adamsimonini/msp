@@ -44,7 +44,9 @@
         href="https://mylittlepony.hasbro.com/en-ca"
         target="_blank"
       >
-      <span class="mr-2">More Ponies</span>
+      <span class="mr-2"> 
+        {{ this.$store.state.username ? (this.$store.state.username + "'s") : "More"}} 
+        Ponies</span>
       </v-btn>
   </v-toolbar>
 </template>

@@ -2,6 +2,14 @@ body {
     font-size: 10px;
 }
 
+h1 {
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+}
+
 p, span, button {
     font-size: 1.4rem;
 }

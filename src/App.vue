@@ -40,5 +40,8 @@ export default {
       //
     };
   },
+  beforeCreate: function() {
+    this.$store.dispatch('authenticate');
+  }
 };
 </script>
