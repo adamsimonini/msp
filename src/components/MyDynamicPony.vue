@@ -9,7 +9,6 @@
           <button @click="showWhich = 'RainbowPony'">Show Rainbow Pony</button>
           <button @click="showWhich = 'PurplePony'">Show Purple Pony</button>
           <button @click="showWhich = 'YellowPony'">Show Yellow Pony</button>
-          <component v-bind:is='dynamicComponent'></component>
           <component v-bind:is='showWhich'></component>
         </div>
       </v-flex>
