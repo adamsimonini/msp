@@ -4,7 +4,8 @@
       text-xs-center
       wrap
     >
-      <v-flex xs12>
+      <v-flex xs12 md12 lg12>
+        <!-- v-flex takes in HTML attributes and applies the appropriate flex clss styles -->
         <div class="pony-container">
           <button @click="showWhich = 'RainbowPony'">Show Rainbow Pony</button>
           <button @click="showWhich = 'PurplePony'">Show Purple Pony</button>
@@ -36,20 +37,5 @@ export default {
 };
 </script>
 
-<style>
-button {
-  background: black;
-  color: white;
-  padding: 0 2%;
-  margin: 2%;
-  border: 1px solid white;
-}
-button:hover {
-  background: white;
-  color: black;
-  border: 1px solid black;
-}
-.pony-container {
-  height: 80vh; 
-}
+<style scoped>
 </style>

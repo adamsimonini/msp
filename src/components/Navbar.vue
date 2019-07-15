@@ -1,8 +1,26 @@
 <template>
-  <v-toolbar dark color="primary">
+  <v-toolbar color="primary">
     <v-toolbar-side-icon></v-toolbar-side-icon>
 
-    <v-toolbar-title class="white--text">Title</v-toolbar-title>
+    <router-link to="/" class="nav-link">
+      <v-toolbar-title class="white--text">MY<b>LITTLE</b>PONIES</v-toolbar-title>
+    </router-link>
+
+    <v-spacer></v-spacer>
+
+    <router-link to="/tasks" class="nav-link">
+      Tasks
+    </router-link>
+    <router-link to="/login" class="nav-link">
+      Login
+    </router-link>
+    <router-link to="/register" class="nav-link">
+      Register
+    </router-link>
+    <router-link to="/ponies" class="nav-link">
+      Ponies
+    </router-link>
+
 
     <v-spacer></v-spacer>
 
@@ -30,3 +48,6 @@
       </v-btn>
   </v-toolbar>
 </template>
+
+<script>
+</script>
