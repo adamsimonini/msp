@@ -47,13 +47,13 @@
       password: '',
       showPassword: false,
       nameRules: [
-        v => !!v || 'Username is required',
-        v => (v && v.length <= 20) || 'Username must be less than 20 characters'
+        (v) => !!v || 'Username is required',
+        (v) => (v && v.length <= 20) || 'Username must be less than 20 characters',
       ],
       email: '',
       emailRules: [
-        v => !!v || 'Password is required',
-        v => (v && v.length > 7) || 'At least 8 characters'
+        (v) => !!v || 'Password is required',
+        (v) => (v && v.length > 7) || 'At least 8 characters',
       ],
     }),
 
@@ -66,7 +66,9 @@
       onSubmit() {
         console.log('submitting form...');
         auth.login();
-        this.$router.push({ name:'/ponies'} );
+        this.$router.push(
+          { name:'/ponies', }, 
+        );
       }
     }
   }

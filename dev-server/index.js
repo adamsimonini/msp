@@ -1,14 +1,8 @@
-const http = require('http');
+import express from 'express';
 
-const hostname = '127.0.0.1';
-const port = 3000;
+const app = express()
+const port = 3000
 
-const server = http.createServer((req, res) => {
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/plain');
-  res.end('Hello World\n');
-});
+app.get('/', (req, res) => res.send('Allahu Akbar'))
 
-server.listen(port, hostname, () => {
-  console.log(`Server running at http://${hostname}:${port}/`);
-});
+app.listen(port, () => console.log(`MSP app listening on THE port ${port}!`))
