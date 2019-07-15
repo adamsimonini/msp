@@ -8,8 +8,8 @@ export default new Vuex.Store({
   state: {
     isLoggedIn: false,
     apiUrl: 'http://localhost:3000',
-    username: null,
-    userId: null,
+    username: '',
+    userId: 0,
   },
   mutations: {
     authenticate(state) {
@@ -18,8 +18,8 @@ export default new Vuex.Store({
         state.username = auth.getUsername();
         state.userId = auth.getUserId()
       } else {
-        state.username = null;
-        state.userId = null;
+        state.username = '';
+        state.userId = 0;
       }
     }
   },
