@@ -2,22 +2,22 @@
   <v-toolbar color="primary">
     <v-toolbar-side-icon></v-toolbar-side-icon>
 
-    <router-link to="/" class="nav-link">
+    <router-link to="/" class="nav-link" exact>
       <v-toolbar-title class="white--text">MY<b>LITTLE</b>PONIES</v-toolbar-title>
     </router-link>
 
     <v-spacer></v-spacer>
 
-    <router-link to="/tasks" class="nav-link">
+    <router-link to="/tasks" class="nav-link" exact>
       Tasks
     </router-link>
-    <router-link to="/login" class="nav-link">
+    <router-link to="/login" class="nav-link" exact>
       Login
     </router-link>
-    <router-link to="/register" class="nav-link">
+    <router-link to="/register" class="nav-link" exact>
       Register
     </router-link>
-    <router-link to="/ponies" class="nav-link">
+    <router-link to="/ponies" class="nav-link" exact>
       Ponies
     </router-link>
 

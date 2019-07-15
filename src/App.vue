@@ -9,6 +9,18 @@ A container should probably have only one layout, but each layout may contain mu
       <v-container>
        <router-view></router-view>
       </v-container>
+      <br/>
+      <br/>
+      <br/>
+      <v-container>
+        <v-layout text-xs-center wrap>
+          <v-flex xsm12>
+            <v-btn color="success">
+              <router-link class="route" to="/ponies">View Ponies</router-link>  
+            </v-btn>
+          </v-flex>
+        </v-layout>
+      </v-container>
     </v-content>
   </v-app>
 </template>

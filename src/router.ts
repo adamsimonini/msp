@@ -45,4 +45,5 @@ export default new Router({
       component: Ponies
     },
   ],
+  linkActiveClass: 'active-menu-link'
 });
