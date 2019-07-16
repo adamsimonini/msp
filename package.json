@@ -4,13 +4,14 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "babel dev-server --out-dir prod-server && vue-cli-service build",
+    "build": "set NODE_ENV=production && babel dev-server --out-dir prod-server && vue-cli-service build",
     "lint": "vue-cli-service lint",
     "test:unit": "vue-cli-service test:unit",
-    "dev": "concurrently \"babel dev-server --out-dir prod-server --watch\" \"nodemon prod-server/index.js\" \"npm run serve\""
+    "dev": "concurrently \"set NODE_ENV=development\" \"babel dev-server --out-dir prod-server --watch\" \"nodemon prod-server/index.js\" \"npm run serve\""
   },
   "dependencies": {
     "@babel/polyfill": "^7.4.4",
+    "body-parser": "^1.19.0",
     "core-js": "^2.6.5",
     "express": "^4.17.1",
     "register-service-worker": "^1.6.2",
@@ -33,7 +34,9 @@
     "@vue/test-utils": "1.0.0-beta.29",
     "babel-core": "7.0.0-bridge.0",
     "concurrently": "^4.1.1",
+    "cors": "^2.8.5",
     "css-loader": "^3.0.0",
+    "morgan": "^1.9.1",
     "node-sass": "^4.12.0",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",

@@ -1,11 +1,21 @@
 import express from 'express';
-import { registerRoutes } from './routes';
-
 const app = express()
-const port = 3000
+import { registerRoutes } from './routes';
+import { setEnvironment } from './config/env';
 
+setEnvironment(app);
 registerRoutes(app);
 
-app.get('/', (req, res) => res.send('Allahu Akbar'))
+app.get('/', (req, res) => {
+    if (process.env.NODE_ENV !== 'production') {
+        return res.send(
+            '**** Running server in development mode ****'
+        );
+    } else {
+        return res.sendFile('index.html', { root: __dirname + '/../dist/'});
+    }
+});
 
-app.listen(port, () => console.log(`MSP app listening on THE port ${port}!`))
+app.listen(3000, () => {
+    console.log('**** MSP app listening on port 3000 in ' + process.env.NODE_ENV + ' mode! ****');
+});

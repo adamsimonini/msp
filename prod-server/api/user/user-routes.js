@@ -11,14 +11,10 @@ exports.default = void 0;
 
 var _express = _interopRequireDefault(require("express"));
 
-var controller = _interopRequireWildcard(require("./task-controller"));
+var controller = _interopRequireWildcard(require("./user-controller"));
 
 var router = _express.default.Router();
 
-router.post('/task', controller.create);
-router.get('/task', controller.index);
-router.get('/task/:id', controller.show);
-router.put('/task', controller.update);
-router.delete('/task', controller.remove);
+router.get('/user', controller.index);
 var _default = router;
 exports.default = _default;
