@@ -16,16 +16,16 @@ export default new Vuex.Store({
       state.isLoggedIn = auth.isLoggedIn();
       if (state.isLoggedIn) {
         state.username = auth.getUsername();
-        state.userId = auth.getUserId()
+        state.userId = auth.getUserId();
       } else {
         state.username = '';
         state.userId = 0;
       }
-    }
+    },
   },
   actions: {
     authenticate(context) {
-      context.commit('authenticate')
-    }
+      context.commit('authenticate');
+    },
   },
 });

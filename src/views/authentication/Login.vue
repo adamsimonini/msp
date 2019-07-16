@@ -67,9 +67,9 @@
         console.log('submitting form...');
         auth.login();
         this.$router.push(
-          { name:'/ponies', }, 
+          { name: '/ponies' },
         );
-      }
-    }
-  }
+      },
+    },
+  };
 </script>

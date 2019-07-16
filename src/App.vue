@@ -40,7 +40,7 @@ export default {
       //
     };
   },
-  beforeCreate: function() {
+  beforeCreate() {
     this.$store.dispatch('authenticate');
   },
 };
