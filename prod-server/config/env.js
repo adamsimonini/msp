@@ -25,12 +25,14 @@ function setEnvironment(app) {
 
 function setDevEnv(app) {
   process.env.NODE_ENV = 'development';
+  process.env.DB_URL = 'mongodb://localhost:27017/msp-dev-db';
   app.use(_bodyParser.default.json());
   app.use((0, _morgan.default)('dev'));
   app.use((0, _cors.default)());
 }
 
 function setProdEnv(app) {
+  process.env.DB_URL = 'mongodb://localhost:27017/msp-prod-db';
   app.use(_bodyParser.default.json());
   app.use(_express.default.static(__dirname + '/../dist'));
 }
