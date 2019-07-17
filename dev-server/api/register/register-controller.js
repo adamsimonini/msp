@@ -1,14 +1,14 @@
-import { StringUtil } from '../../utilities/string-util';
+const StringUtil = require('../../utilities/string-util');
 
 export function index(req, res) {
-    const validation = validationIndex(req.body);
+    const validation = validateIndex(req.body);
     if (!validation.isValid) {
         return res.json({ message: validation.message });
     }
 
     const user = {
         username: req.body.username.toLowerCase(),
-        password: req.body.password;
+        password: req.body.password,
     }
     console.log(user);
     return res.json();

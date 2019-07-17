@@ -5,7 +5,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.index = index;
 
-var _stringUtil = require("../../utilities/string-util");
+var StringUtil = require("../../utilities/string-util");
 
 function index(req, res) {
   var validation = validateIndex(req.body);
@@ -22,16 +22,16 @@ function index(req, res) {
 function validateIndex(body) {
   var errors = '';
 
-  if (_stringUtil.StringUtil.isEmpty(body.username)) {
+  if (StringUtil.isEmpty(body.username)) {
     erorrs += 'Username is required ';
   }
 
-  if (_stringUtil.StringUtil.isEmpty(body.password)) {
+  if (StringUtil.isEmpty(body.password)) {
     errors += 'Password is required. ';
   }
 
   return {
-    isValid: _stringUtil.StringUtil.isEmpty(errors),
+    isValid: StringUtil.isEmpty(errors),
     message: errors
   };
 }

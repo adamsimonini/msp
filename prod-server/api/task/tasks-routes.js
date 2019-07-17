@@ -11,7 +11,7 @@ exports.default = void 0;
 
 var _express = _interopRequireDefault(require("express"));
 
-var controller = _interopRequireWildcard(require("./task-controller"));
+var controller = _interopRequireWildcard(require("./tasks-controller"));
 
 var router = _express.default.Router();
 

@@ -1,7 +1,6 @@
 import express from 'express';
 const router = express.Router();
-import * as controller from './task-controller';
-
+import * as controller from './tasks-controller';
 
 router.post('/task', controller.create);
 router.get('/task', controller.index);

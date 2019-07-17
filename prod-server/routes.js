@@ -11,9 +11,9 @@ var _tasksRoutes = _interopRequireDefault(require("./api/task/tasks-routes"));
 
 var _registerRoutes = _interopRequireDefault(require("./api/register/register-routes"));
 
-var _userRoutes = _interopRequireDefault(require("./api/user/user-routes"));
+var _authRoutes = _interopRequireDefault(require("./api/auth/auth-routes.js"));
 
-var _authRoutes = _interopRequireDefault(require("./api/auth/auth-routes"));
+var _userRoutes = _interopRequireDefault(require("./api/user/user-routes"));
 
 function registerRoutes(app) {
   app.use('/api', _tasksRoutes.default);

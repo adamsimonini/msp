@@ -43,10 +43,10 @@ export default {
   beforeCreate() {
     this.$store.dispatch('authenticate');
     fetch(this.$store.state.apiUrl + '/api/user', {
-      method: 'GET'
+      method: 'GET',
     })
-    .then(res => res.json())
-    .then(res => console.log(res));
+    .then((res) => res.json())
+    .then((res) => console.log(res));
   },
 };
 </script>

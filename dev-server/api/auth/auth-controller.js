@@ -1,4 +1,4 @@
-import { StringUtil } from '../../utilities/string-util';
+const StringUtil = require('../../utilities/string-util');
 
 export function index(req, res) {
     const validation = validateIndex(req.body);
