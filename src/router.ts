@@ -57,13 +57,6 @@ export default new Router({
       path: '/register',
       name: 'register',
       component: Register,
-      beforeEnter: (to, from, next) => {
-        if (isLoggedIn) {
-          next();
-        } else {
-          next('/login');
-        }
-      },
     },
     {
       path: '/login',

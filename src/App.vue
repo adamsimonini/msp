@@ -16,7 +16,9 @@ A container should probably have only one layout, but each layout may contain mu
         <v-layout text-xs-center wrap>
           <v-flex xsm12>
             <v-btn color="success">
-              <router-link class="route" to="/ponies">View Ponies</router-link>  
+              <div>
+                <router-link class="route" to="/ponies">View Ponies</router-link>  
+              </div>
             </v-btn>
           </v-flex>
         </v-layout>

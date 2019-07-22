@@ -1,9 +1,9 @@
-export default () => {
-    function isEmpty(value) {
+export default class StringUtil {
+    static isEmpty(value) {
         return !value || !value.trim();
     }
 
-    function capitalize(word) {
+    static capitalize(word) {
         return word.charAt(0).toUpperCase();
     }
 }

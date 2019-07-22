@@ -6,6 +6,7 @@
   >
   <h2>Login</h2>
     <v-text-field
+      id="username"
       v-model="username"
       :counter="20"
       :rules="nameRules"
@@ -14,6 +15,7 @@
     ></v-text-field>
 
     <v-text-field
+      id="password"
       v-model="password"
       :append-icon="showPassword ? 'visibility' : 'visibility_off'"
       :rules="emailRules"
@@ -23,8 +25,6 @@
       @click:append="showPassword = !showPassword"
       required
     ></v-text-field>
-
-
 
     <v-btn
       :disabled="!valid"
