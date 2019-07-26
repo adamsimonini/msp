@@ -68,7 +68,6 @@
           username: this.username,
           password: this.password
         }
-        console.log('submitting form...');
         await auth.login(user);
         this.$router.push({ name: '/ponies' });
       },

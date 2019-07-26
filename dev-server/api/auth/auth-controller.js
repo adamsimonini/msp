@@ -2,8 +2,6 @@
 import User from '../../model/user-model';
 import { generateJWT } from  '../../services/auth-service';
 
-// services\auth-service.js
-
 export function index(req, res) {
     const validation = validateIndex(req.body);
     if (!validation.isValid) {
@@ -41,7 +39,6 @@ function validateIndex(body) {
     if (isEmpty(body.password)) {
         errors += 'Password is required. ';
     }
-    console.log('validateIndex function...');
     return {
         isValid: isEmpty(errors),
         message: 'there was an error'

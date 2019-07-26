@@ -7,14 +7,10 @@ export function isLoggedIn() {
 }
 
 export function login(user: any) {
-    console.log('logging in...');
     return http().post('/auth', user)
     .then((res: any) => {
         if (res) {
-            const fakeToken = {
-                token: 'my-token',
-            };
-            setToken(fakeToken);
+            setToken(res.data.token);
         }
     });
 }
@@ -34,6 +30,5 @@ export function getUserId() {
 }
 
 export function registerUser(user: any) {
-    console.log('registering...');
     return http().post('/register', user);
 }

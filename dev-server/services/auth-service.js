@@ -1,4 +1,4 @@
-
+// JWT is the JSON Web Token package saved in package.json. The token secret is defined in the .env file
 import jwt from 'jsonwebtoken';
 
 export function generateJWT(user) {
