@@ -8,19 +8,21 @@
 
     <v-spacer></v-spacer>
 
-    <router-link to="/tasks" class="nav-link" exact>
+    <router-link v-if="$store.state.isLoggedIn" to="/tasks" class="nav-link" exact>
       Tasks
     </router-link>
-    <router-link to="/login" class="nav-link" exact>
+    <router-link v-if="!$store.state.isLoggedIn" to="/login" class="nav-link" exact>
       Login
     </router-link>
-    <router-link to="/register" class="nav-link" exact>
+    <a v-if="$store.state.isLoggedIn" v-on:click.prevent="logout()" to="/#" class="nav-link" exact>
+      Logout
+    </a>
+    <router-link v-if="!$store.state.isLoggedIn" to="/register" class="nav-link" exact>
       Register
     </router-link>
     <router-link to="/ponies" class="nav-link" exact>
       Ponies
     </router-link>
-
 
     <v-spacer></v-spacer>
 
@@ -52,4 +54,17 @@
 </template>
 
 <script>
+
+import * as auth from '../services/AuthService';
+
+export default {
+  name: 'Navbar',
+  methods: {
+    logout() {
+      auth.logout();
+      this.$router.push({ name: 'home'});
+    }
+  }
+}
+
 </script>

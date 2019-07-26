@@ -15,9 +15,13 @@ export function login(user: any) {
     });
 }
 
+export function logout() {
+    localStorage.clear();
+    store.dispatch('authenticate');
+}
 
 function setToken(token: any) {
-    localStorage.setItem('token', JSON.stringify(token));
+    localStorage.setItem('token', token);
     store.dispatch('authenticate');
 }
 
