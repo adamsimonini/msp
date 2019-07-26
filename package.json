@@ -7,7 +7,7 @@
     "build": "set NODE_ENV=production && babel dev-server --out-dir prod-server && vue-cli-service build",
     "lint": "vue-cli-service lint",
     "test:unit": "vue-cli-service test:unit",
-    "dev": "concurrently \"set NODE_ENV=development\" \"babel dev-server --out-dir prod-server --watch\" \"nodemon prod-server/index.js\" \"npm run serve\""
+    "dev": "concurrently \"set DEBUG=* & set NODE_ENV=development\" \"babel dev-server --out-dir prod-server --watch\" \"nodemon prod-server/index.js\" \"npm run serve\""
   },
   "dependencies": {
     "@babel/polyfill": "^7.4.4",
@@ -15,6 +15,7 @@
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.19.0",
     "core-js": "^2.6.5",
+    "debug": "^4.1.1",
     "express": "^4.17.1",
     "moment": "^2.24.0",
     "mongoose": "^5.6.4",

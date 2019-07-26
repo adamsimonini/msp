@@ -1,11 +1,10 @@
-// import { StringUtil } from '../utilities/string-util';
-const StringUtil = require('../../utilities/string-util');
+// import { StringUtil } from '../../utilities/string-util';
 import User from '../../model/user-model';
 
 export function index(req, res) {
     const validation = validateIndex(req.body);
     if (!validation.isValid) {
-        return res.status(400).json({ message: validation.message });
+        return res.status(400).json({ message: validation.message + ' fgt!' });
     }
     User.findOne({ username: req.body.username.toLowerCase() }, (error, user) => {
         if (error) {
@@ -15,28 +14,32 @@ export function index(req, res) {
             return res.status(401).json();
         }
         // check if password from db and password from user match
-        const passwordMatch = User.passwordMatches(req.body.password, user.password);
+        const passwordsMatch = User.passwordMatches(req.body.password, user.password);
 
-        if (!passwordMatch) {
+        if (!passwordsMatch) {
             return res.status(401).json();
         }
         return res.status(200).json();
     });
 }
 
+function isEmpty(value) {
+    return !value || !value.trim();
+}
+
 function validateIndex(body) {
     let errors = '';
 
-    if (StringUtil.isEmpty(body.username)) {
-        erorrs += 'Username is required ';
+    if (isEmpty(body.username)) {
+        errors += 'Username is required ';
     }
 
-    if (StringUtil.isEmpty(body.password)) {
+    if (isEmpty(body.password)) {
         errors += 'Password is required. ';
     }
-
+    console.log('validateIndex function...');
     return {
-        isValid: StringUtil.isEmpty(errors),
-        message: errors
+        isValid: isEmpty(errors),
+        message: 'there was an error'
     }
 }

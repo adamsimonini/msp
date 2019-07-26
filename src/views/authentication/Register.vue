@@ -82,7 +82,7 @@
           this.onSubmit();
         }
       },
-      onSubmit: async function() {
+      async onSubmit() {
         const user = {
           username: this.username,
           password: this.password,

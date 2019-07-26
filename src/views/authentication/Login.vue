@@ -63,12 +63,14 @@
           this.onSubmit();
         }
       },
-      onSubmit() {
+      async onSubmit() {
+        const user = {
+          username: this.username,
+          password: this.password
+        }
         console.log('submitting form...');
-        auth.login();
-        this.$router.push(
-          { name: '/ponies' },
-        );
+        await auth.login(user);
+        this.$router.push({ name: '/ponies' });
       },
     },
   };
