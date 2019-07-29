@@ -1,6 +1,7 @@
 <template>
-    <div>
+    <div class="pony-block">
         <p>I AM THE RAINBOW PONY!!!</p>
+        <br/>
         <v-img
           :src="require('@image/rainbow-pony.png')"
           class="my-3"
