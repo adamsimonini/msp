@@ -63,8 +63,8 @@ export default {
     logout() {
       auth.logout();
       this.$router.push({ name: 'home'});
-    }
-  }
-}
+    },
+  },
+};
 
 </script>

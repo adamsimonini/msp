@@ -3,7 +3,7 @@ import { http } from './HttpService';
 import jwt from 'jsonwebtoken';
 
 export function isLoggedIn() {
-    const token = localStorage.getItem('token');
+    const token: any = localStorage.getItem('token');
     return token != null;
 }
 
@@ -31,7 +31,7 @@ export function getToken() {
 }
 
 export function getUsername() {
-    const token = decodeToken();
+    const token: any = decodeToken();
     if (!token) {
         return null;
     }
@@ -39,7 +39,7 @@ export function getUsername() {
 }
 
 export function getUserId() {
-    const token = decodeToken();
+    const token: any = decodeToken();
     if (!token) {
         return null;
     }
@@ -51,7 +51,7 @@ export function registerUser(user: any) {
 }
 
 function decodeToken() {
-    const token = getToken();
+    const token: any = getToken();
     if (!token) {
         return null;
     }

@@ -66,8 +66,8 @@
       async onSubmit() {
         const user = {
           username: this.username,
-          password: this.password
-        }
+          password: this.password,
+        };
         await auth.login(user);
         this.$router.push({ name: '/ponies' });
       },
