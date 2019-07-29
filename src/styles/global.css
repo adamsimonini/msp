@@ -11,10 +11,10 @@ h2 {
 }
 
 p, span, button {
-    font-size: 1.4rem;
+    /* font-size: 1.4rem; */
 }
 
-button {
+/* button {
     background: black;
     color: white;
     padding: 0 2%;
@@ -29,4 +29,4 @@ button:hover {
 }
 .pony-container {
   height: 25vh; 
-}
+} */

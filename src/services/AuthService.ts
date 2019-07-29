@@ -19,6 +19,7 @@ export function login(user: any) {
 export function logout() {
     localStorage.clear();
     store.dispatch('authenticate');
+    console.log('logging out...');
 }
 
 function setToken(token: any) {
