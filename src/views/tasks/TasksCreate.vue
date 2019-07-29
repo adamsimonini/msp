@@ -1,58 +1,81 @@
 <template>
-    <div>
-    <h2>Create Task</h2>
-        <v-text-field
-            id="username"
-            v-model="username"
-            :counter="20"
-            :rules="nameRules"
-            label="Username"
-            required
-        ></v-text-field>
+  <div>
+    <h2>New Task</h2>
+      <v-text-field
+          v-model="task.title"
+          :rules="titleRules"
+          label="Title"
+          required
+      ></v-text-field>
 
-        <v-text-field
-            id="password"
-            v-model="password"
-            :append-icon="showPassword ? 'visibility' : 'visibility_off'"
-            :rules="emailRules"
-            :type="showPassword ? 'text' : 'password'"
-            label="Password"
-            hint="At least 8 characters"
-            @click:append="showPassword = !showPassword"
-            required
-        ></v-text-field>
-
-        <v-btn
-            :disabled="!valid"
-            color="success"
-            @click="validate"
+      <v-text-field
+          v-model="task.body"
+          :rules="bodyRules"
+          label="Body"
+          required
+      ></v-text-field>
+      <v-menu
+          ref="menu"
+          v-model="menu"
+          :close-on-content-click="false"
+          transition="scale-transition"
+          offset-y
+          full-width
+          min-width="290px"
         >
-        Validate
-        </v-btn>
-    </div>
+          <template v-slot:activator="{ on }">
+            <v-text-field
+              v-model="task.dueDate"
+              label="Due Date"
+              prepend-icon="event"
+              readonly
+              v-on="on"
+            ></v-text-field>
+          </template>
+          <v-date-picker
+            ref="picker"
+            v-model="task.dueDate"
+            :max="new Date().toISOString().substr(0, 10)"
+            min="1950-01-01"
+            @change="save"
+          ></v-date-picker>
+        </v-menu>
+
+      <v-btn
+        :disabled="!valid"
+        color="success"
+        @click="validate"
+      >
+        Add Task
+      </v-btn>
+  </div>
 </template>
 
 <script>
-  import * as auth from '@/services/AuthService';
+  import * as taskService from '@/services/TaskService';
 
   export default {
-      name: 'login',
+      name: 'task-create',
     data: () => ({
-        valid: true,
-      username: '',
-      password: '',
-      showPassword: false,
-      nameRules: [
-        (v) => !!v || 'Username is required',
-        (v) => (v && v.length <= 20) || 'Username must be less than 20 characters',
+      task: {
+        title: '',
+        body: '',
+        dueDate: null,
+      },
+      menu: false,
+      valid: true,
+      titleRules: [
+        (v) => !!v || 'Title is required',
       ],
-      email: '',
-      emailRules: [
-        (v) => !!v || 'Password is required',
-        (v) => (v && v.length > 7) || 'At least 8 characters',
+      bodyRules: [
+        (v) => !!v || 'Content is required',
       ],
     }),
-
+    watch: {
+      menu (val) {
+        val && setTimeout(() => (this.$refs.picker.activePicker = 'YEAR'));
+      },
+    },
     methods: {
       validate() {
         if (this.$refs.form.validate()) {
@@ -60,12 +83,14 @@
         }
       },
       async onSubmit() {
-        const user = {
-          username: this.username,
-          password: this.password,
+        const request = {
+          task: this.task,
         };
-        await auth.login(user);
-        this.$router.push({ name: '/ponies' });
+        await taskService.createTask(request);
+        this.$router.push({ name: 'tasks-all' });
+      },
+      save(date) {
+        this.$refs.menu.save(date);
       },
     },
   };

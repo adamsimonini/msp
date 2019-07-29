@@ -151,7 +151,7 @@ export default {
         { icon: 'touch_app', text: 'Register', route: '/register', show: !this.$store.state.isLoggedIn},
         { divider: true },
         { heading: 'Labels' },
-        { icon: 'add', text: 'Ponies', route: '/ponies', show: this.$store.state.isLoggedIn},
+        { icon: 'add', text: 'Add task', route: '/tasks/new', show: this.$store.state.isLoggedIn},
         { divider: true },
         { icon: 'archive', text: 'Archive', route: '/register', show: this.$store.state.isLoggedIn},
         { icon: 'delete', text: 'Trash', route: '/register', show: this.$store.state.isLoggedIn},
@@ -173,8 +173,8 @@ export default {
   computed: {
     isLoggedIn() {
       return this.$store.state.isLoggedIn;
-    }
-  }
+    },
+  },
 };
 
 </script>
