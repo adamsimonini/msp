@@ -52,9 +52,8 @@ export default {
     this.$store.dispatch('authenticate');
     fetch(this.$store.state.apiUrl + '/user', {
       method: 'GET',
-    })
+    }).then((res) => console.log(res));
     // .then((res) => res.json())
-    .then((res) => console.log(res));
   },
 };
 </script>

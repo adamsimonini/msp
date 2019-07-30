@@ -7,7 +7,7 @@
     >
       <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
       <router-link to="/" class="app-title">
-        <h1 class="title ml-3 mr-5">MSP&nbsp;<span class="font-weight-light">Program</span></h1>
+        <h1 class="title ml-3 mr-5">Home&nbsp;<span class="font-weight-light"></span></h1>
       </router-link>
       <v-text-field
         solo-inverted
@@ -24,7 +24,6 @@
     </v-app-bar>
 
     <v-navigation-drawer
-      v-if=this.created
       v-model="drawer"
       app
       clipped
@@ -47,14 +46,8 @@
                 {{ item.heading }}
               </v-subheader>
             </v-flex>
-            <v-flex
-              xs6
-              class="text-right"
-            >
-              <v-btn
-                small
-                text
-              >edit</v-btn>
+            <v-flex xs6 class="text-right">
+              <v-btn small text>edit</v-btn>
             </v-flex>
           </v-layout>
           <v-divider
@@ -63,12 +56,8 @@
             dark
             class="my-4"
           ></v-divider>
-          <v-list-item
-            v-else
-            :key="i"
-            @click=""
-          >
-            <!-- <router-link :to=item.route class="v-list-item v-list-item--link theme--light"> -->
+          <v-list-item v-else :key="i" @click="">
+            <router-link :to=item.route class="v-list-item v-list-item--link theme--light">
               <v-list-item-action>
                 <v-icon>{{ item.icon }}</v-icon>
               </v-list-item-action>
@@ -77,7 +66,7 @@
                   {{ item.text }}
                 </v-list-item-title>
               </v-list-item-content>
-            <!-- </router-link> -->
+            </router-link>
           </v-list-item>
           </div>
         </template>
@@ -94,14 +83,8 @@
                   {{ item.heading }}
                 </v-subheader>
               </v-flex>
-              <v-flex
-                xs6
-                class="text-right"
-              >
-                <v-btn
-                  small
-                  text
-                >edit</v-btn>
+              <v-flex xs6 class="text-right">
+                <v-btn small text>edit</v-btn>
               </v-flex>
             </v-layout>
             <v-divider
@@ -146,7 +129,6 @@ export default {
   },
   data() {
     return {
-      created: false,
       drawer: null,
       unloggedNav: [
         { icon: 'lightbulb_outline', text: 'Login', route: '/login'},
@@ -179,9 +161,6 @@ export default {
       return this.$store.state.isLoggedIn;
     },
   },
-  created() {
-    this.created = true;
-  }
 };
 
 </script>

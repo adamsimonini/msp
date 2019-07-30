@@ -35,8 +35,8 @@
           <v-date-picker
             ref="picker"
             v-model="task.dueDate"
-            :max="new Date().toISOString().substr(0, 10)"
-            min="1950-01-01"
+            max="2022-12-31"
+            min="2019-07-20"
             @change="save"
           ></v-date-picker>
         </v-menu>

@@ -1,6 +1,9 @@
 <template>
     <v-container>
         <h2>HOME</h2>
+        <router-link to="/tasks">
+          <v-btn color="warning">View Tasks</v-btn>
+        </router-link>
         <router-link v-if="!$store.state.isLoggedIn" to="/login">
           <v-btn color="warning">Log In</v-btn>
         </router-link>
