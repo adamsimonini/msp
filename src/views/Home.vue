@@ -1,11 +1,11 @@
 <template>
     <v-container>
         <h2>HOME</h2>
-        <router-link to="/login">
-          <v-btn color="success">Log In</v-btn>
+        <router-link v-if="!$store.state.isLoggedIn" to="/login">
+          <v-btn color="warning">Log In</v-btn>
         </router-link>
-        <router-link to="/register">
-          <v-btn color="success">Register</v-btn>
+        <router-link v-if="!$store.state.isLoggedIn" to="/register">
+          <v-btn color="warning">Register</v-btn>
         </router-link>
     </v-container>
 </template>

@@ -42,7 +42,7 @@
 
     <v-btn
       :disabled="!valid"
-      color="success"
+      color="warning"
       @click="validate()"
     >
       Register

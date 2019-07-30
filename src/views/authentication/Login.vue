@@ -28,10 +28,10 @@
 
     <v-btn
       :disabled="!valid"
-      color="success"
+      color="warning"
       @click="validate"
     >
-      Validate
+      Login
     </v-btn>
   </v-form>
 </template>

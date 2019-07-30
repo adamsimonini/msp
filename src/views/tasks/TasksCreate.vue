@@ -43,8 +43,8 @@
 
       <v-btn
         :disabled="!valid"
-        color="success"
-        @click="validate"
+        color="warning"
+        @click="onSubmit"
       >
         Add Task
       </v-btn>
@@ -55,21 +55,21 @@
   import * as taskService from '@/services/TaskService';
 
   export default {
-      name: 'task-create',
+    name: 'task-create',
     data: () => ({
-      task: {
-        title: '',
-        body: '',
-        dueDate: null,
-      },
-      menu: false,
-      valid: true,
-      titleRules: [
-        (v) => !!v || 'Title is required',
-      ],
-      bodyRules: [
-        (v) => !!v || 'Content is required',
-      ],
+        task: {
+          title: '',
+          body: '',
+          dueDate: null,
+        },
+        menu: false,
+        valid: true,
+        titleRules: [
+          (v) => !!v || 'Title is required',
+        ],
+        bodyRules: [
+          (v) => !!v || 'Content is required',
+        ],
     }),
     watch: {
       menu (val) {
@@ -77,17 +77,16 @@
       },
     },
     methods: {
-      validate() {
-        if (this.$refs.form.validate()) {
-          this.onSubmit();
-        }
-      },
       async onSubmit() {
-        const request = {
-          task: this.task,
-        };
-        await taskService.createTask(request);
-        this.$router.push({ name: 'tasks-all' });
+          const request = {
+              task: this.task,
+          };
+          try {
+            await taskService.createTask(request);
+            this.$router.push({ name: 'tasks-all' });
+          } catch (error) {
+              return error;
+          }
       },
       save(date) {
         this.$refs.menu.save(date);
