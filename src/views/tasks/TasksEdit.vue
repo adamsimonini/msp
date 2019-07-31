@@ -77,11 +77,9 @@
       },
     },
     beforeRouteEnter(to, from, next) {
-        console.log('before enter started...');
         taskService.getTaskById(to.params.id).then((response) => {
             if (!response) {
-                console.log('no task to update found...')
-                next('/tasks')
+                next('/tasks');
             } else {
                 next((vm) => {
                     const task = response.data.task;
