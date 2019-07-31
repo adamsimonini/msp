@@ -9,6 +9,7 @@ export default new Vuex.Store({
     isLoggedIn: false,
     // a dynamic API URL, what we appropriately change with the server's location
     apiUrl: `${window.location.protocol}//${window.location.hostname}:3000/api`,
+    // apiUrl: 'http://localhost:3000/api',
     username: '',
     userId: 0,
   },

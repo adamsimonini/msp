@@ -1,10 +1,7 @@
 <template>
-    <div>
+    <div class='all-tasks-container '>
         <h2>Tasks</h2>
-        <router-link to="/tasks/new" exact>
-            <v-btn color="warning">Add Task</v-btn>
-        </router-link>
-        <div v-if="tasks && tasks.length > 0" class='task-box'>
+        <div v-if="tasks && tasks.length > 0" class='tasks-box'>
             <template>
                 <v-card 
                     v-for="task in tasks" 
@@ -46,6 +43,11 @@
                     </v-card-actions>
                 </v-card>
             </template>
+        </div>
+        <div class="all-button">
+            <router-link to="/tasks/new" exact>
+                <v-btn color="warning">Add Task</v-btn>
+            </router-link>
         </div>
     </div>
 </template>
@@ -91,7 +93,18 @@
 </script>
 
 <style scoped>
-    .task-box {
+    .all-button {
+        width: 100%;
+        text-align: center;
+    }
+    .all-tasks-container {
+        width: 100%;
+    }
+    .tasks-box {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: flex-start;
         margin: 10px 0;
         width: 100%;
     }

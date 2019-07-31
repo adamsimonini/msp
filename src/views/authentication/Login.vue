@@ -69,7 +69,7 @@
           password: this.password,
         };
         await auth.login(user);
-        this.$router.push({ name: '/ponies' });
+        this.$router.push({ name: 'tasks-all' });
       },
     },
   };

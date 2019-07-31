@@ -13,7 +13,6 @@ A container should probably have only one layout, but each layout may contain mu
       >
         <v-layout
           justify-center
-          align-center
         >
         <router-view></router-view>
         </v-layout>
