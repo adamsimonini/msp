@@ -6,8 +6,9 @@ import './registerServiceWorker';
 import '@/styles/global.css';
 import '@/styles/global.scss';
 import moment from 'moment';
-
+import VueI18n from 'vue-i18n'
 import vuetify from './plugins/vuetify';
+
 Vue.filter('dateFix', (value: string) => {
   if (!value) {
     return '';
@@ -16,6 +17,7 @@ Vue.filter('dateFix', (value: string) => {
 });
 
 Vue.config.productionTip = false;
+Vue.use(VueI18n)
 
 new Vue({
   router,

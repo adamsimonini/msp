@@ -1,6 +1,7 @@
 <template>
     <v-container>
         <h2>HOME</h2>
+        <!-- <p>{{ $t("message.hello") }}</p> -->
         <router-link to="/tasks">
           <v-btn color="warning">View Tasks</v-btn>
         </router-link>
