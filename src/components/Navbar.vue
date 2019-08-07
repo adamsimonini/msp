@@ -18,8 +18,7 @@
       ></v-text-field>
       <v-spacer></v-spacer>
       <span class="mr-2"> 
-        {{ this.$store.state.username ? (this.$store.state.username + "'s") : "More"}} 
-        Ponies
+        {{ this.$store.state.username ? (`Welcome ${this.$store.state.username}`) : ""}} 
       </span>
     </v-app-bar>
 
@@ -45,9 +44,6 @@
               <v-subheader v-if="item.heading">
                 {{ item.heading }}
               </v-subheader>
-            </v-flex>
-            <v-flex xs6 class="text-right">
-              <v-btn small text>edit</v-btn>
             </v-flex>
           </v-layout>
           <v-divider
@@ -83,9 +79,6 @@
                   {{ item.heading }}
                 </v-subheader>
               </v-flex>
-              <v-flex xs6 class="text-right">
-                <v-btn small text>edit</v-btn>
-              </v-flex>
             </v-layout>
             <v-divider
               v-else-if="item.divider"
@@ -96,7 +89,7 @@
             <v-list-item
               v-else
               :key="i"
-              @click=""
+              @click="item.click ? item.click : ''"
             >
               <router-link :to=item.route class="v-list-item v-list-item--link theme--light">
                 <v-list-item-action>
@@ -133,7 +126,7 @@ export default {
       unloggedNav: [
         { icon: 'lightbulb_outline', text: 'Login', route: '/login'},
         { icon: 'touch_app', text: 'Register', route: '/register'},
-        { icon: 'call_split', text: 'Ponies', route: '/ponies'},
+        { icon: 'call_split', text: 'Easter Egg', route: '/ponies'},
       ],
       loggedNav: [
         { heading: 'Labels' },
@@ -146,7 +139,7 @@ export default {
         { icon: 'chat_bubble', text: 'Trash', route: '/register'},
         { icon: 'help', text: 'Help', route: '/register' },
         { icon: 'keyboard', text: 'Keyboard shortcuts', route: '/register'},
-        // { icon: 'call_split', text: 'Ponies', route: '/ponies'},
+        // { icon: 'lightbulb_outline', text: 'Logout', route: '/home'},
       ],
     };
   },

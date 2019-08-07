@@ -1,7 +1,7 @@
 <template>
     <v-container>
-        <h2>HOME</h2>
-        <!-- <p>{{ $t("message.hello") }}</p> -->
+        <p>{{ $t("message.derka") }}</p>
+        <p>{{ $t("message.hello") }}</p>
         <router-link to="/tasks">
           <v-btn color="warning">View Tasks</v-btn>
         </router-link>
@@ -18,9 +18,7 @@
   export default {
     name: 'home',
     data: () => ({
-
     }),
-
     methods: {
     },
   };

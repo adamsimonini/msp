@@ -24,3 +24,8 @@ p, span, button {
 a {
   text-decoration: none;
 }
+
+/* Task actions area */
+.actions button span {
+  font-size: 0.8rem !important;
+}

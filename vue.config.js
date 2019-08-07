@@ -12,4 +12,12 @@ module.exports = {
         config.resolve.alias.set('@image', path.resolve(__dirname, 'public/img'));
         config.resolve.alias.set('@dev', path.resolve(__dirname, 'dev-server'));
     },
+    pluginOptions: {
+      i18n: {
+        locale: 'en',
+        fallbackLocale: 'en',
+        localeDir: 'locales',
+        enableInSFC: false
+      }
+    },
 }

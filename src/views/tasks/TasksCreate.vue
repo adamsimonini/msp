@@ -57,7 +57,7 @@
   export default {
     name: 'task-create',
     data: () => ({
-        task: {
+              task: {
           title: '',
           body: '',
           dueDate: null,

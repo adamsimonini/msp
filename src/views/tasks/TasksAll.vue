@@ -1,6 +1,11 @@
 <template>
     <div class='all-tasks-container '>
         <h2>Tasks</h2>
+        <div class="all-button">
+            <router-link to="/tasks/new" exact>
+                <v-btn color="warning">Add Task</v-btn>
+            </router-link>
+        </div>
         <div v-if="tasks && tasks.length > 0" class='tasks-box'>
             <template>
                 <v-card 
@@ -32,22 +37,20 @@
                                 Edit
                             </router-link>
                         </v-btn>
+                        <v-spacer></v-spacer>
                         <v-btn 
                             v-if="task.author._id === $store.state.userId" 
-                            text
                             v-on:click.prevent="currentTaskId = task._id"
                             @click="deleteTask(task)"
+                            depressed 
+                            small
+                            color="error"
                         >
                             Delete
                         </v-btn>
                     </v-card-actions>
                 </v-card>
             </template>
-        </div>
-        <div class="all-button">
-            <router-link to="/tasks/new" exact>
-                <v-btn color="warning">Add Task</v-btn>
-            </router-link>
         </div>
     </div>
 </template>
@@ -123,5 +126,11 @@
     }
     .late-task {
         background-color: pink;
+    }
+    .actions button span {
+        font-size: 1rem !important;
+    }
+    .delete {
+        font-size: 1rem !important;
     }
 </style>
