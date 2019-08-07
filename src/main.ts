@@ -22,13 +22,13 @@ Vue.filter('dateFix', (value: string) => {
 
 
 const i18n = new VueI18n({
-  locale: 'fr', // set locale
+  locale: 'en', // set locale
   messages: translations, // set locale messages
-})
+});
 
 Vue.config.productionTip = false;
 
-new Vue({
+var vm = new Vue({
   router,
   store,
   vuetify,

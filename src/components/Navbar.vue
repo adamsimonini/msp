@@ -7,7 +7,7 @@
     >
       <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
       <router-link to="/" class="app-title">
-        <h1 class="title ml-3 mr-5">Home&nbsp;<span class="font-weight-light"></span></h1>
+        <h1 class="title ml-3 mr-5">{{ $t("message.homepage") }}&nbsp;<span class="font-weight-light"></span></h1>
       </router-link>
       <v-text-field
         solo-inverted
@@ -18,7 +18,7 @@
       ></v-text-field>
       <v-spacer></v-spacer>
       <span class="mr-2"> 
-        {{ this.$store.state.username ? (`Welcome ${this.$store.state.username}`) : ""}} 
+        {{ this.$store.state.username ? (`${$t("message.welcome")} ${this.$store.state.username}`) : ""}} 
       </span>
     </v-app-bar>
 
@@ -52,7 +52,7 @@
             dark
             class="my-4"
           ></v-divider>
-          <v-list-item v-else :key="i" @click="">
+          <v-list-item v-else :key="i" >
             <router-link :to=item.route class="v-list-item v-list-item--link theme--light">
               <v-list-item-action>
                 <v-icon>{{ item.icon }}</v-icon>
@@ -89,7 +89,7 @@
             <v-list-item
               v-else
               :key="i"
-              @click="item.click ? item.click : ''"
+              @click="item.function"
             >
               <router-link :to=item.route class="v-list-item v-list-item--link theme--light">
                 <v-list-item-action>
@@ -97,16 +97,14 @@
                 </v-list-item-action>
                 <v-list-item-content>
                   <v-list-item-title class="grey--text">
-                    {{ item.text }}
-                  </v-list-item-title>
+                    <!-- {{ $t("message.homepage") }} -->
+                    {{ $t(`message.${item.text}`) }}
+                  </v-list-item-title> 
                 </v-list-item-content>
               </router-link>
             </v-list-item>
           </div>
         </template>
-        <a v-if="$store.state.isLoggedIn" v-on:click.prevent="logout()" to="/#" class="v-list-item v-list-item--link theme--light" exact>
-          LOGOUT
-        </a>
       </v-list>
     </v-navigation-drawer>
   </div>
@@ -114,6 +112,7 @@
 
 <script>
 import * as auth from '../services/AuthService';
+// let locale = this.$i18n.locale;
 
 export default {
   name: 'Navbar',
@@ -122,24 +121,31 @@ export default {
   },
   data() {
     return {
+      locale: this.$i18n.locale,
       drawer: null,
       unloggedNav: [
-        { icon: 'lightbulb_outline', text: 'Login', route: '/login'},
-        { icon: 'touch_app', text: 'Register', route: '/register'},
-        { icon: 'call_split', text: 'Easter Egg', route: '/ponies'},
+        { icon: 'lightbulb_outline', text: 'Login', route: '/login', function: this.empty},
+        { icon: 'touch_app', text: 'Register', route: '/register', function: this.empty},
+        { icon: 'call_split', text: 'Easter Egg', route: '/ponies', function: this.empty},
       ],
       loggedNav: [
         { heading: 'Labels' },
-        { icon: 'add', text: 'Add task', route: '/tasks/new'},
+        { icon: 'add', text: 'addTask', route: '/tasks/new', function: this.empty},
         { divider: true },
-        { icon: 'archive', text: 'Archive', route: '/register'},
-        { icon: 'delete', text: 'Trash', route: '/register'},
+        { icon: 'archive', text: 'archive', route: '/register', function: this.empty},
+        { icon: 'delete', text: 'trash', route: '/register', function: this.empty},
+        { icon: 'keyboard', text: 'keyboardShotcuts', route: '/register', function: this.empty},
+        { icon: 'settings', text: 'settings', route: '/register', function: this.empty},
+        { 
+          icon: 'chat_bubble',
+          text: this.locale, 
+          // () => { return 'french' },
+            // return this.$i18n.locale == 'en' ? "french" : "english";
+          route: this.$router.currentRoute,
+          function: this.changeLanguage,
+        },
         { divider: true },
-        { icon: 'settings', text: 'Settings', route: '/register'},
-        { icon: 'chat_bubble', text: 'Trash', route: '/register'},
-        { icon: 'help', text: 'Help', route: '/register' },
-        { icon: 'keyboard', text: 'Keyboard shortcuts', route: '/register'},
-        // { icon: 'lightbulb_outline', text: 'Logout', route: '/home'},
+        { icon: 'lightbulb_outline', text: 'logout', route: '/', function: this.logout},
       ],
     };
   },
@@ -148,6 +154,12 @@ export default {
       auth.logout();
       this.$router.push({ name: 'home'});
     },
+    changeLanguage() {
+      this.$i18n.locale == 'en' ? this.$i18n.locale = 'fr' : this.$i18n.locale = 'en';
+    },
+    empty() {
+      return false;
+    }
   },
   computed: {
     isLoggedIn() {

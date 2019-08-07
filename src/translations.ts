@@ -1,20 +1,30 @@
 const translations = {
     en: {
       message: {
-        hello: 'hello world',
-        derka: 'allahu akbar!'
-      }
-    },
-    ja: {
-      message: {
-        hello: 'こんにちは、世界',
-        derka: 'الله أكبر!'
+        homepage: "Home",
+        welcome: 'Welcome',
+        addTask: "Add Task",
+        archive: "Archive",
+        trash: "Trash",
+        keyboardShotcuts: "Keyboard shortcuts",
+        settings: "Settings",
+        french: "Française",
+        english: "English",
+        logout: 'Logout',
       }
     },
     fr: {
       message: {
-        hello: 'Bonjour le monde',
-        derka: 'Dieu est plus grand'
+        homepage: "Page d'accueil",
+        welcome: 'Bienvenue',
+        addTask: "Ajouter une tâche",
+        archive: "Archiver",
+        trash: "Poubelle",
+        keyboardShotcuts: "Raccourcis clavier",
+        settings: "Réglages",
+        french: "Française",
+        english: "English",
+        logout: "Connectez - Out",
       }
     }
 }
