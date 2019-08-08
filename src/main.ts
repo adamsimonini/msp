@@ -28,7 +28,8 @@ const i18n = new VueI18n({
 
 Vue.config.productionTip = false;
 
-var vm = new Vue({
+new Vue({
+  mixins: [],
   router,
   store,
   vuetify,

@@ -9,16 +9,21 @@
       <router-link to="/" class="app-title">
         <h1 class="title ml-3 mr-5">{{ $t("message.homepage") }}&nbsp;<span class="font-weight-light"></span></h1>
       </router-link>
-      <v-text-field
+      <!-- <v-text-field
         solo-inverted
         flat
         hide-details
         label="Search"
         prepend-inner-icon="search"
-      ></v-text-field>
+      ></v-text-field> -->
       <v-spacer></v-spacer>
-      <span class="mr-2"> 
-        {{ this.$store.state.username ? (`${$t("message.welcome")} ${this.$store.state.username}`) : ""}} 
+      <span class="mr-2 top-right">
+        <div id="switch-language" @click="changeLanguage">
+          <span>{{  this.locale }} </span>
+        </div>
+        <div>
+          {{ this.$store.state.username ? (`${$t("message.welcome")} ${this.$store.state.username}`) : ""}} 
+        </div>
       </span>
     </v-app-bar>
 
@@ -32,7 +37,7 @@
         dense
         class="grey lighten-4"
       >
-      <!-- THe navigation show to not-logged-in users -->
+      <!-- THe navigation show to not-logged in users -->
         <template v-for="(item, i) in unloggedNav">
           <div v-if="!$store.state.isLoggedIn" :key=i >
           <v-layout
@@ -59,7 +64,7 @@
               </v-list-item-action>
               <v-list-item-content>
                 <v-list-item-title class="grey--text">
-                  {{ item.text }}
+                 {{ $t(`message.${item.text}`) }}
                 </v-list-item-title>
               </v-list-item-content>
             </router-link>
@@ -97,7 +102,6 @@
                 </v-list-item-action>
                 <v-list-item-content>
                   <v-list-item-title class="grey--text">
-                    <!-- {{ $t("message.homepage") }} -->
                     {{ $t(`message.${item.text}`) }}
                   </v-list-item-title> 
                 </v-list-item-content>
@@ -112,7 +116,6 @@
 
 <script>
 import * as auth from '../services/AuthService';
-// let locale = this.$i18n.locale;
 
 export default {
   name: 'Navbar',
@@ -120,12 +123,13 @@ export default {
     source: String,
   },
   data() {
+    let a = this.$i18n.locale;
     return {
-      locale: this.$i18n.locale,
+      locale: "Française",
       drawer: null,
       unloggedNav: [
-        { icon: 'lightbulb_outline', text: 'Login', route: '/login', function: this.empty},
-        { icon: 'touch_app', text: 'Register', route: '/register', function: this.empty},
+        { icon: 'lightbulb_outline', text: 'login', route: '/login', function: this.empty},
+        { icon: 'touch_app', text: 'register', route: '/register', function: this.empty},
         { icon: 'call_split', text: 'Easter Egg', route: '/ponies', function: this.empty},
       ],
       loggedNav: [
@@ -136,14 +140,6 @@ export default {
         { icon: 'delete', text: 'trash', route: '/register', function: this.empty},
         { icon: 'keyboard', text: 'keyboardShotcuts', route: '/register', function: this.empty},
         { icon: 'settings', text: 'settings', route: '/register', function: this.empty},
-        { 
-          icon: 'chat_bubble',
-          text: this.locale, 
-          // () => { return 'french' },
-            // return this.$i18n.locale == 'en' ? "french" : "english";
-          route: this.$router.currentRoute,
-          function: this.changeLanguage,
-        },
         { divider: true },
         { icon: 'lightbulb_outline', text: 'logout', route: '/', function: this.logout},
       ],
@@ -155,7 +151,13 @@ export default {
       this.$router.push({ name: 'home'});
     },
     changeLanguage() {
-      this.$i18n.locale == 'en' ? this.$i18n.locale = 'fr' : this.$i18n.locale = 'en';
+      if (this.$i18n.locale == 'en' ) {
+        this.$i18n.locale = 'fr';
+        this.locale = 'English';
+      } else {
+        this.$i18n.locale = 'en';
+        this.locale = 'Française';
+      }
     },
     empty() {
       return false;
@@ -170,9 +172,34 @@ export default {
 
 </script>
 
-<style scroped>
+<style lang="scss" scroped>
 .app-title {
   text-decoration: none;
   color: black !important;
+}
+.top-right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  div {
+    margin: 0 10px
+  }
+}
+#switch-language {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  font-size: 12px;
+  padding: 0 16px;
+  min-height: 48px;
+    &:hover {
+      background-color: rgba(220,220,220,0.5);
+      cursor: pointer;
+    }
+    span {
+      font-size: 1rem;
+      user-select: none;
+    }
 }
 </style>

@@ -1,13 +1,13 @@
 <template>
     <v-container>
         <router-link to="/tasks">
-          <v-btn color="warning">View Tasks</v-btn>
+          <v-btn color="warning">{{ $t("message.viewTasks") }}</v-btn>
         </router-link>
         <router-link v-if="!$store.state.isLoggedIn" to="/login">
-          <v-btn color="warning">Log In</v-btn>
+          <v-btn color="warning">{{ $t("message.login") }}</v-btn>
         </router-link>
         <router-link v-if="!$store.state.isLoggedIn" to="/register">
-          <v-btn color="warning">Register</v-btn>
+          <v-btn color="warning">{{ $t("message.register") }}</v-btn>
         </router-link>
     </v-container>
 </template>

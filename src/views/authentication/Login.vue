@@ -4,7 +4,7 @@
     v-model="valid"
     lazy-validation
   >
-  <h2>Login</h2>
+  <h2>{{ $t("message.login") }}</h2>
     <v-text-field
       id="username"
       v-model="username"
@@ -31,7 +31,7 @@
       color="warning"
       @click="validate"
     >
-      Login
+      {{ $t("message.login") }}
     </v-btn>
   </v-form>
 </template>

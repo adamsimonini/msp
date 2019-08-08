@@ -1,13 +1,12 @@
 <template>
   <div>
-    <h2>New Task</h2>
+    <h2>{{ $t("message.newTask") }}</h2>
       <v-text-field
           v-model="task.title"
           :rules="titleRules"
           label="Title"
           required
       ></v-text-field>
-
       <v-text-field
           v-model="task.body"
           :rules="bodyRules"
@@ -46,7 +45,7 @@
         color="warning"
         @click="onSubmit"
       >
-        Add Task
+        {{ $t("message.addTask") }}
       </v-btn>
   </div>
 </template>

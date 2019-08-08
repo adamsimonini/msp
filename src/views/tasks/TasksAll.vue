@@ -1,9 +1,9 @@
 <template>
     <div class='all-tasks-container '>
-        <h2>Tasks</h2>
+        <h2>{{ $t("message.tasks") }}</h2>
         <div class="all-button">
             <router-link to="/tasks/new" exact>
-                <v-btn color="warning">Add Task</v-btn>
+                <v-btn color="warning">{{ $t("message.addTask") }}</v-btn>
             </router-link>
         </div>
         <div v-if="tasks && tasks.length > 0" class='tasks-box'>
@@ -11,7 +11,6 @@
                 <v-card 
                     v-for="task in tasks" 
                     :key="task._id"
-                    max-width="344"
                     class="task-card"
                     :class="{'late-task': taskIsLate(task.dueDate) && !task.completed}"
                 >
@@ -29,12 +28,12 @@
                                 v-model="task.completed"
                                 :click="completed(task)"
                                 />
-                            <label for="complete-checkbox">Completed</label>
+                            <label for="complete-checkbox">{{ $t("message.completed") }}</label>
                         </div>
                         <!-- task.author._id === $store.state.userId" -->
                         <v-btn v-if="false" text>
                             <router-link :to="{name: 'tasks-edit', params: { id: task._id }}" exact>
-                                Edit
+                                {{ $t("message.edit") }}
                             </router-link>
                         </v-btn>
                         <v-spacer></v-spacer>
@@ -46,7 +45,7 @@
                             small
                             color="error"
                         >
-                            Delete
+                            {{ $t("message.delete") }}
                         </v-btn>
                     </v-card-actions>
                 </v-card>
@@ -105,6 +104,7 @@
     }
     .tasks-box {
         display: flex;
+        flex-flow: wrap;
         flex-direction: row;
         justify-content: space-evenly;
         align-items: flex-start;
@@ -113,6 +113,8 @@
     }
     .task-card {
         margin: 10px 0;
+        width: 350px;
+        min-height: 250px;
     }
     .actions {
         display: flex;
