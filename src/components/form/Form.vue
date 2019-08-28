@@ -14,16 +14,16 @@
         <v-container v-if=questions[0].step>
             <h2>Dynamically Generated Form (with steps)</h2>
             <div 
-                v-for="(item, stepIndex) in formQuestions"
+                v-for="item in formQuestions"
                 :key=item.step
             >
                 <p>Step {{item.step}}</p>
                 <component
-                    v-for="(question, questionIndex) in item.questions"
+                    v-for="question in item.questions"
                     :key="question.name"
                     :is="question.fieldType"
                     v-bind="question"
-                    v-show="item.step == (questionIndex)"
+                    v-show="item.step == page"
                 >
                 </component>
             </div>
