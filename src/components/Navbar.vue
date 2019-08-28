@@ -19,7 +19,7 @@
       <v-spacer></v-spacer>
       <span class="mr-2 top-right">
         <div id="switch-language" @click="changeLanguage">
-          <span>{{  this.locale }} </span>
+          <span>{{  this.toLocale }} </span>
         </div>
         <div>
           {{ this.$store.state.username ? (`${$t("message.welcome")} ${this.$store.state.username}`) : ""}} 
@@ -125,12 +125,12 @@ export default {
   data() {
     let a = this.$i18n.locale;
     return {
-      locale: "Française",
+      toLocale: "Française",
       drawer: null,
       unloggedNav: [
         { icon: 'lightbulb_outline', text: 'login', route: '/login', function: this.empty},
         { icon: 'touch_app', text: 'register', route: '/register', function: this.empty},
-        { icon: 'call_split', text: 'Easter Egg', route: '/ponies', function: this.empty},
+        // { icon: 'call_split', text: 'Easter Egg', route: '/ponies', function: this.empty},
       ],
       loggedNav: [
         { heading: 'Labels' },
@@ -154,9 +154,11 @@ export default {
       if (this.$i18n.locale == 'en' ) {
         this.$i18n.locale = 'fr';
         this.locale = 'English';
+        this.$vuetify.lang.current = 'fr';
       } else {
         this.$i18n.locale = 'en';
         this.locale = 'Française';
+        this.$vuetify.lang.current = 'en';
       }
     },
     empty() {

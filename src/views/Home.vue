@@ -1,5 +1,6 @@
 <template>
     <v-container>
+      <div class="button-bar">
         <router-link to="/tasks">
           <v-btn color="warning">{{ $t("message.viewTasks") }}</v-btn>
         </router-link>
@@ -9,25 +10,65 @@
         <router-link v-if="!$store.state.isLoggedIn" to="/register">
           <v-btn color="warning">{{ $t("message.register") }}</v-btn>
         </router-link>
+      </div>
+      <div class="form-example-container">
+        <Form :questions="this.screeningQuestionsOne" class="standard-form form-example"/>
+        <Form :questions="this.screeningQuestionsTwo" class="nonstandard-form form-example"/>
+                <Form :questions="this.screeningQuestionsOne" class="standard-form form-example"/>
+        <Form :questions="this.screeningQuestionsTwo" class="nonstandard-form form-example"/>
+                <Form :questions="this.screeningQuestionsOne" class="standard-form form-example"/>
+        <Form :questions="this.screeningQuestionsTwo" class="nonstandard-form form-example"/>
+      </div>
     </v-container>
 </template>
 
 <script>
+  import * as screeningQuestions from '@/components/form/form-questions/ScreeningQuestions';
+  import * as projectInfoQuestions from '@/components/form/form-questions/ScreeningQuestions';
+
+  import Form from "@/components/form/Form";
   export default {
     name: 'home',
-    data: () => ({
-    }),
+    components: {
+      Form,
+    },
+    data: function(){
+      return {
+        screeningQuestionsOne: screeningQuestions.questionSetOne,
+        screeningQuestionsTwo: screeningQuestions.questionSetTwo,
+      }
+    },
     methods: {
     },
   };
 </script>
 
 <style scoped>
+.button-bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+  padding-bottom: 20px;
+}
 .container {
     display: flex;
     flex-direction: column;
-    height: 50%;
-    justify-content: space-evenly;
+    justify-content: start;
     align-items: center;
+}
+.form-example-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+  padding-bottom: 20px;
+}
+.form-example {
+  min-height: 600px;
+  margin: 10px 0;
 }
 </style>
