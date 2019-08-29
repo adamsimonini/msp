@@ -14,10 +14,12 @@
       <div class="form-example-container">
         <Form :questions="this.screeningQuestionsOne" class="standard-form form-example"/>
         <Form :questions="this.screeningQuestionsTwo" class="nonstandard-form form-example"/>
-                <Form :questions="this.screeningQuestionsOne" class="standard-form form-example"/>
         <Form :questions="this.screeningQuestionsTwo" class="nonstandard-form form-example"/>
-                <Form :questions="this.screeningQuestionsOne" class="standard-form form-example"/>
+      </div>
+      <div class="form-example-container">
+        <Form :questions="this.screeningQuestionsOne" class="standard-form form-example"/>
         <Form :questions="this.screeningQuestionsTwo" class="nonstandard-form form-example"/>
+        <Form :questions="this.screeningQuestionsThree" class="standard-form form-example"/>
       </div>
     </v-container>
 </template>
@@ -36,6 +38,7 @@
       return {
         screeningQuestionsOne: screeningQuestions.questionSetOne,
         screeningQuestionsTwo: screeningQuestions.questionSetTwo,
+        screeningQuestionsThree: screeningQuestions.questionSetThree,
       }
     },
     methods: {
@@ -63,12 +66,18 @@
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: space-evenly;
-  align-items: center;
+  align-items: flex-start;
   width: 100%;
   padding-bottom: 20px;
 }
 .form-example {
   min-height: 600px;
   margin: 10px 0;
+}
+.form-example:nth-child(odd) {
+  border: 1px solid #FFC107;
+}
+.form-example:nth-child(even) {
+  border: 1px solid red;
 }
 </style>

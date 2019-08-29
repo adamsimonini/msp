@@ -1,12 +1,12 @@
 <template>
     <div class="form-control">
-        <label>{{label}}</label>
         <v-select
             :items="options"
             :rules="[v => !!v || 'Item is required']"
-            placeholder="placeholder"
+            :placeholder=label
             color="#FB9514"
             required
+            :label=label
         ></v-select>
     </div>
 </template>

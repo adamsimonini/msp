@@ -11,7 +11,11 @@ h2 {
 }
 
 p, span, button {
-    font-size: 1.2rem;
+  font-size: 1.2rem;
+}
+
+label {
+  font-size: 1rem;
 }
 
 .pony-block {
