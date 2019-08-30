@@ -4,7 +4,7 @@
             class="form-textfield"
             type="text"
             :name="name"
-            :rules="[v => !!v || 'Item is required']"
+            :rules="[rules.required]"
             :placeholder=placeholder
             :label=label
             color="#FB9514"
@@ -17,9 +17,17 @@
     export default {
         name: 'TextInput',
         props: {
-            'placeholder': String,
-            'label': String,
-            'name': String,
+            name: String,
+            placeholder: String,
+            label: String,
+            errors: String,
         },
+        data: function() {
+            return {
+                rules: {
+                    required: value => !!value || this.errors.required,
+                }
+            }
+        }
     }
 </script>

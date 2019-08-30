@@ -1,6 +1,6 @@
 <template>
-    <v-form class="form-box">
-        <!-- Shows if the question object is without steps -->
+    <v-form class="form-box" ref="form">
+        <!-- Only if the question object is without steps -->
         <v-container v-if=!questions[0].step class="question-container">
             <h2>Dynamically Generated Form (sans steps)</h2>
             <component 
@@ -11,32 +11,41 @@
             >
             </component>
         </v-container>
-        <!-- Shows if the question object has steps -->
+        <!-- Only if the question object has steps -->
         <v-container v-if=questions[0].step class="question-container">
             <h2>Dynamically Generated Form (with steps)</h2>
             <div 
                 v-for="item in formQuestions"
                 :key=item.step
             >
-                <p v-show="item.step == page">{{item.stepName}}</p>
                 <component
                     v-for="question in item.questions"
                     :key="question.name"
                     :is="question.fieldType"
                     v-bind="question"
-                    v-show="item.step == page"
+                    v-show="item.step == paginationIndex"
                 >
                 </component>
             </div>
         </v-container>
-        <v-pagination
-            circle
-            color="#FB9514"
-            v-if=questions[0].step
-            class="form-pagination"
-            v-model="page"
-            :length=formQuestions.length
-        ></v-pagination>
+        <div class="form-pagination">
+            <v-pagination
+                circle
+                color="#FB9514"
+                v-if=questions[0].step
+                v-model="paginationIndex"
+                :length=formQuestions.length
+            ></v-pagination>
+            <v-btn
+                v-if="!questions[0].step || paginationIndex == questions.length"
+                class="submit-button"
+                :disabled="!valid"
+                color="#FB9514"
+                @click="validate"
+            >
+                Submit
+            </v-btn>
+        </div>
     </v-form>
 </template>
 
@@ -57,13 +66,21 @@
             TextInput,
             DatePicker,
             SwitchControl,
-            NumberControl
+            NumberControl,
         },
         data: function() {
             return {
+                valid: true,
                 formQuestions: this.questions,
-                page: 1,
+                paginationIndex: 1,
             }
+        },
+        methods: {
+            validate () {
+                if (this.$refs.form.validate()) {
+                    this.snackbar = true
+                }
+            },
         },
     }
 </script>
@@ -74,12 +91,19 @@
     grid-template-areas:
         "questions"
         "pagination";
-    grid-template-rows: 5fr 1fr;
+    grid-template-rows: 5fr 150px;
 }
 .question-container {
     grid-area: questions;
 }
 .form-pagination {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
     grid-area: pagination;
+}
+.submit-button {
+    color: white;
 }
 </style>

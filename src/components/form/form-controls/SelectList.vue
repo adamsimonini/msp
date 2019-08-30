@@ -2,7 +2,7 @@
     <div class="form-control">
         <v-select
             :items="options"
-            :rules="[v => !!v || 'Item is required']"
+            :rules="[rules.required]"
             :placeholder=label
             color="#FB9514"
             required
@@ -15,14 +15,17 @@
     export default {
         name: 'SelectList',
         props: {
-            'multi': Boolean, 
-            'options': Array,
-            'name': String,
-            'label': String,
+            name: String,
+            placeholder: String,
+            label: String,
+            errors: String,
+            options: Array,
         },
         data: function() {
             return {
-
+                rules: {
+                    required: value => !!value || this.errors.required,
+                }
             }
         }
     }

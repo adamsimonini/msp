@@ -14,24 +14,49 @@ export const questionSetOne =
                     fieldType: "TextInput",
                     placeholder: "",
                     label: "Name",
+                    errors: {
+                        required: "Name is required",
+                    },
+                },
+                {
+                    name: "ponyAge",
+                    fieldType: "NumberControl",
+                    label: "Pony Age",
+                    errors: {
+                        required: "The age of your pony is required",
+                        counter: {
+                            maxValue: 99,
+                            message: "Horses don't live to be 100, yet!"
+                        }
+                    },
                 },
                 {
                     name: "ponyBreed",
-                    fieldType: "TextInput",
-                    placeholder: "",
+                    fieldType: "SelectList",
+                    multi: false,
                     label: "Breed",
+                    errors: {
+                        required: "The breed of your pony is required",
+                    },
+                    options: ["Augeron", "Belgian Warmblood", "Cerbat Mustang", "Clydesdale horse", "Java Pony", "Miyako Pony", "Newfoundland pony", "Spanish Mustang", "Welsh Pony"],
                 },
                 {
                     name: "ponyPower",
                     fieldType: "TextInput",
                     placeholder: "",
-                    label: "Horse Power",
+                    label: "Pony Power (i.e., Horse Power)",
+                    errors: {
+                        required: "Pony power is required",
+                    },
                 },
                 {
                     name: "ponyMagic",
                     fieldType: "TextInput",
                     placeholder: "",
                     label: "Magical Ability",
+                    errors: {
+                        required: "Magical ability isrequired",
+                    },
                 },
             ]
             
@@ -45,6 +70,9 @@ export const questionSetOne =
                     fieldType: "SelectList",
                     multi: false,
                     label: "Title: ",
+                    errors: {
+                        required: "Name is required",
+                    },
                     options: ["Ms", "Mr", "Mx", "Dr", "Madam", "Lord"], 
                 },
                 {
@@ -52,6 +80,9 @@ export const questionSetOne =
                     fieldType: "TextInput",
                     placeholder: "First Name",
                     label: "First Name",
+                    errors: {
+                        required: "Name is required",
+                    },
                 },
                 {
                     name: "lastName",
@@ -84,12 +115,18 @@ export const questionSetTwo =
             placeholder: "First Name",
             label: "First Name",
             name: "firstName",
+            errors: {
+                required: "Name is required",
+            },
         },
         {
             fieldType: "TextInput",
             placeholder: "Last Name",
             label: "Last Name",
             name: "lastName",
+            errors: {
+                required: "Name is required",
+            },
         },
         // {
         //     fieldType: "NumberInput",
@@ -103,6 +140,9 @@ export const questionSetTwo =
             name: "title",
             multi: false,
             label: "Title for set II",
+            errors: {
+                required: "Name is required",
+            },
             options: ["Ms", "Mr", "Mx", "Dr", "Madam", "Lord"],
         },
         {
@@ -110,6 +150,9 @@ export const questionSetTwo =
             name: "title",
             multi: false,
             label: "Title for set II",
+            errors: {
+                required: "Name is required",
+            },
             options: ["Ms", "Mr", "Mx", "Dr", "Madam", "Lord"],
         },
     ]
