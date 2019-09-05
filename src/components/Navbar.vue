@@ -123,7 +123,6 @@ export default {
     source: String,
   },
   data() {
-    let a = this.$i18n.locale;
     return {
       toLocale: "Française",
       drawer: null,
@@ -151,19 +150,19 @@ export default {
       this.$router.push({ name: 'home'});
     },
     changeLanguage() {
-      if (this.$i18n.locale == 'en' ) {
+      if (this.$i18n.locale === 'en' ) {
         this.$i18n.locale = 'fr';
-        this.locale = 'English';
+        this.toLocale = 'English';
         this.$vuetify.lang.current = 'fr';
       } else {
         this.$i18n.locale = 'en';
-        this.locale = 'Française';
+        this.toLocale = 'Française';
         this.$vuetify.lang.current = 'en';
       }
     },
     empty() {
       return false;
-    }
+    },
   },
   computed: {
     isLoggedIn() {

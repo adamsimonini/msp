@@ -18,15 +18,15 @@
             name: String,
             placeholder: String,
             label: String,
-            errors: String,
+            errors: Object,
             options: Array,
         },
-        data: function() {
+        data() {
             return {
                 rules: {
-                    required: value => !!value || this.errors.required,
-                }
-            }
-        }
-    }
+                    required: (value) => !!value || this.errors.required,
+                },
+            };
+        },
+    };
 </script>

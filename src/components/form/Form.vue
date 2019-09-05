@@ -3,7 +3,7 @@
         <!-- Only if the question object is without steps -->
         <v-container v-if=!questions[0].step class="question-container">
             <h2>Dynamically Generated Form (sans steps)</h2>
-            <component 
+            <component
                 v-for="(field, index) in formQuestions"
                 :key="index"
                 :is="field.fieldType"
@@ -43,18 +43,22 @@
                 color="#FB9514"
                 @click="validate"
             >
-                Submit
+                {{ $t("message.submit") }}
             </v-btn>
         </div>
     </v-form>
 </template>
 
 <script>
+    // Fully importing all possible controls into the form component
     import SelectList from './form-controls/SelectList';
     import TextInput from './form-controls/TextInput';
     import DatePicker from './form-controls/DatePicker';
     import SwitchControl from './form-controls/SwitchControl';
     import NumberControl from './form-controls/NumberControl';
+    import CheckboxControl from './form-controls/CheckboxControl';
+    import RadioControl from './form-controls/RadioControl';
+    import SliderControl from './form-controls/SliderControl';
 
     export default {
         name: 'dynamicForm',
@@ -67,22 +71,25 @@
             DatePicker,
             SwitchControl,
             NumberControl,
+            CheckboxControl,
+            RadioControl,
+            SliderControl,
         },
-        data: function() {
+        data() {
             return {
                 valid: true,
                 formQuestions: this.questions,
                 paginationIndex: 1,
-            }
+            };
         },
         methods: {
             validate () {
                 if (this.$refs.form.validate()) {
-                    this.snackbar = true
+                    this.snackbar = true;
                 }
             },
         },
-    }
+    };
 </script>
 
 <style scoped>
@@ -92,6 +99,7 @@
         "questions"
         "pagination";
     grid-template-rows: 5fr 150px;
+    max-width: 500px;
 }
 .question-container {
     grid-area: questions;

@@ -16,18 +16,21 @@
 <script>
     export default {
         name: 'TextInput',
+        components: {
+            
+        },
         props: {
             name: String,
             placeholder: String,
             label: String,
-            errors: String,
+            errors: Object,
         },
-        data: function() {
+        data() {
             return {
                 rules: {
-                    required: value => !!value || this.errors.required,
-                }
-            }
-        }
-    }
+                    required: (value) => !!value || this.errors.required,
+                },
+            };
+        },
+    };
 </script>

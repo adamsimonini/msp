@@ -24,7 +24,7 @@ export default {
       return {
         switch1: true,
         switchState: false,
-    }
+    };
   },
-}
+};
 </script>

@@ -17,14 +17,14 @@
             label: String,
             errors: Object,
         },
-        data: function() {
+        data() {
             return {
                 numberValue: "",
                 rules: {
-                    required: value => !!value || this.errors.required,
-                    counter: value => parseInt(value) <= this.errors.counter.maxValue || this.errors.counter.message,
-                }
-            }
-        }
-    }
+                    required: (value) => !!value || this.errors.required,
+                    counter: (value) => parseInt(value) <= this.errors.counter.maxValue || this.errors.counter.message,
+                },
+            };
+        },
+    };
 </script>

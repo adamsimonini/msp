@@ -1,4 +1,4 @@
-export const questionSetOne = 
+export const questionSetOne =
     [
         {
             stepName: 'Official Ontario Pony Ownership Form',
@@ -26,8 +26,8 @@ export const questionSetOne =
                         required: "The age of your pony is required",
                         counter: {
                             maxValue: 99,
-                            message: "Horses don't live to be 100, yet!"
-                        }
+                            message: "Horses don't live to be 100, yet!",
+                        },
                     },
                 },
                 {
@@ -38,7 +38,10 @@ export const questionSetOne =
                     errors: {
                         required: "The breed of your pony is required",
                     },
-                    options: ["Augeron", "Belgian Warmblood", "Cerbat Mustang", "Clydesdale horse", "Java Pony", "Miyako Pony", "Newfoundland pony", "Spanish Mustang", "Welsh Pony"],
+                    options: [
+                        "Augeron", "Belgian Warmblood", "Cerbat Mustang", "Clydesdale horse",
+                        "Java Pony", "Miyako Pony", "Newfoundland pony", "Spanish Mustang", "Welsh Pony",
+                    ],
                 },
                 {
                     name: "ponyPower",
@@ -51,15 +54,49 @@ export const questionSetOne =
                 },
                 {
                     name: "ponyMagic",
-                    fieldType: "TextInput",
+                    fieldType: "SelectList",
                     placeholder: "",
                     label: "Magical Ability",
                     errors: {
-                        required: "Magical ability isrequired",
+                        required: "Magical ability is required",
                     },
+                    options: [
+                        "Invisilbity", "Shooting Rainbow Light Beams", "Flying",
+                        "Super-Horse Strength", "Superior Intellect", "Ultrasonic Speed", "Invincibility",
+                    ],
                 },
-            ]
-            
+                {
+                    name: "ponyFood",
+                    fieldType: "CheckboxControl",
+                    label: "Food Restrictions",
+                    color: "#FB9D26",
+                    errors: {
+                        required: "Pick at least one",
+                    },
+                    options: ["Vegetarian", "Halal", "Vegan", "Gluten Free", "No Sugar"],
+                },
+                {
+                    name: "ponyFootwear",
+                    fieldType: "RadioControl",
+                    label: "Pony Footwear",
+                    color: "#FB9D26",
+                    errors: {
+                        required: "Must choose one option",
+                    },
+                    options: ["Plastic", "Metal", "None"],
+                    column: true,
+                },
+                {
+                    name: "temperment",
+                    fieldType: "SliderControl",
+                    label: "Temperment",
+                    color: "#FB9D26",
+                    errors: {
+                        required: "",
+                    },
+                    options: ["Plastic", "Metal", "None"],
+                },
+            ],
         },
         {
             stepName: 'Personal Info',
@@ -73,7 +110,7 @@ export const questionSetOne =
                     errors: {
                         required: "Name is required",
                     },
-                    options: ["Ms", "Mr", "Mx", "Dr", "Madam", "Lord"], 
+                    options: ["Ms", "Mr", "Mx", "Dr", "Madam", "Lord"],
                 },
                 {
                     name: "firstName",
@@ -90,7 +127,7 @@ export const questionSetOne =
                     placeholder: "Last Name",
                     label: "Last Name:",
                 },
-            ]
+            ],
         },
         {
             stepName: 'Company Info',
@@ -101,14 +138,13 @@ export const questionSetOne =
                     name: "title",
                     multi: false,
                     label: "Title: ",
-                    options: ["Ms", "Mr", "Mx", "Dr", "Madam", "Lord"], 
-                }
-            ]
-            
+                    options: ["Ms", "Mr", "Mx", "Dr", "Madam", "Lord"],
+                },
+            ],
         },
-    ]
+    ];
 
-export const questionSetTwo = 
+export const questionSetTwo =
     [
         {
             fieldType: "TextInput",
@@ -155,9 +191,9 @@ export const questionSetTwo =
             },
             options: ["Ms", "Mr", "Mx", "Dr", "Madam", "Lord"],
         },
-    ]
+    ];
 
-export const questionSetThree = 
+export const questionSetThree =
     [
         {
             stepName: 'Personal Info',
@@ -174,7 +210,7 @@ export const questionSetThree =
                     fieldType: "DatePicker",
                     label: "Pony rental date",
                 },
-            ]
+            ],
         },
         {
             stepName: 'Company Info',
@@ -192,10 +228,9 @@ export const questionSetThree =
                     name: "title",
                     multi: false,
                     label: "Title: ",
-                    options: ["Ms", "Mr", "Mx", "Dr", "Madam", "Lord"], 
-                }
-            ]
-            
+                    options: ["Ms", "Mr", "Mx", "Dr", "Madam", "Lord"],
+                },
+            ],
         },
         {
             stepName: 'Pony Ownership Info',
@@ -208,7 +243,6 @@ export const questionSetThree =
                 //     label: "Age",
                 //     minValue: 0,
                 // },
-            ]
-            
+            ],
         },
-    ]
+    ];

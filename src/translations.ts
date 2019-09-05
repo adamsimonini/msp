@@ -15,11 +15,12 @@ const translations = {
         newTask: "New Task",
         register: "Register",
         settings: "Settings",
+        submit: "Submit",
         tasks: "Tasks",
         trash: "Trash",
         viewTasks: "View Tasks",
         welcome: 'Welcome',
-      }
+      },
     },
     fr: {
       message: {
@@ -37,12 +38,13 @@ const translations = {
         newTask: "Nouvelle Tâche",
         register: "registre",
         settings: "Réglages",
+        submit: "Soumettre",
         tasks: "Les Tâches",
         trash: "Poubelle",
         viewTasks: "Voir Les Tâches",
         welcome: 'Bienvenue',
-      }
-    }
-}
+      },
+    },
+};
 
 export default translations;

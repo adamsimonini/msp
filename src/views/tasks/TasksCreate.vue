@@ -72,7 +72,7 @@
     }),
     watch: {
       menu (val) {
-        val && setTimeout(() => (this.$refs.picker.activePicker = 'YEAR'));
+        // val && setTimeout(() => (this.$refs.picker.activePicker = 'YEAR'));
       },
     },
     methods: {

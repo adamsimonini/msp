@@ -15,12 +15,12 @@
         props: {
           label: String,
         },
-        data: function() {
+        data() {
             return {
                 picker: new Date().toISOString().substr(0, 10),
-            }
-        }
-    }
+            };
+        },
+    };
 </script>
 
 <style scoped>

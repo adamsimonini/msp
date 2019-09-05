@@ -34,12 +34,12 @@
     components: {
       Form,
     },
-    data: function(){
+    data() {
       return {
         screeningQuestionsOne: screeningQuestions.questionSetOne,
         screeningQuestionsTwo: screeningQuestions.questionSetTwo,
         screeningQuestionsThree: screeningQuestions.questionSetThree,
-      }
+      };
     },
     methods: {
     },
@@ -58,7 +58,7 @@
 .container {
     display: flex;
     flex-direction: column;
-    justify-content: start;
+    justify-content: flex-start;
     align-items: center;
 }
 .form-example-container {

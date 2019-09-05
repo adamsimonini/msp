@@ -1,4 +1,5 @@
 import Vue from 'vue';
+// import vuex from './vuex';
 import App from './App.vue';
 import router from './router';
 import store from './store';
@@ -11,7 +12,7 @@ import translations from '@/translations';
 import '@/styles/global.css';
 import '@/styles/global.scss';
 
-Vue.use(VueI18n)
+Vue.use(VueI18n);
 
 Vue.filter('dateFix', (value: string) => {
   if (!value) {
