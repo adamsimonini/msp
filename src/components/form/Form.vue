@@ -2,7 +2,6 @@
     <v-form class="form-box" ref="form">
         <!-- Only if the question object is without steps -->
         <v-container v-if=!questions[0].step class="question-container">
-            <h2>Dynamically Generated Form (sans steps)</h2>
             <component
                 v-for="(field, index) in formQuestions"
                 :key="index"
@@ -13,7 +12,6 @@
         </v-container>
         <!-- Only if the question object has steps -->
         <v-container v-if=questions[0].step class="question-container">
-            <h2>Dynamically Generated Form (with steps)</h2>
             <div 
                 v-for="item in formQuestions"
                 :key=item.step

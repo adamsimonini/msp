@@ -6,6 +6,7 @@ import Register from '@/views/authentication/Register.vue';
 import TasksAll from '@/views/tasks/TasksAll.vue';
 import TasksCreate from '@/views/tasks/TasksCreate.vue';
 import TasksEdit from '@/views/tasks/TasksEdit.vue';
+import Partnerships from '@/views/application-sections/Partnerships.vue';
 import Ponies from '@/components/MyDynamicPony.vue';
 import * as auth from './services/AuthService';
 
@@ -70,6 +71,18 @@ export default new Router({
           next();
         } else {
           next('/ponies');
+        }
+      },
+    },
+    {
+      path: '/partnerships',
+      name: 'Partnerships',
+      component: Partnerships,
+      beforeEnter: (to, from, next) => {
+        if (auth.isLoggedIn()) {
+          next();
+        } else {
+          next('/login');
         }
       },
     },
