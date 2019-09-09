@@ -126,6 +126,9 @@ export const questionSetOne =
                     fieldType: "TextInput",
                     placeholder: "Last Name",
                     label: "Last Name:",
+                    errors: {
+                        required: "Last name is required",
+                    },
                 },
             ],
         },
@@ -138,6 +141,9 @@ export const questionSetOne =
                     name: "title",
                     multi: false,
                     label: "Title: ",
+                    errors: {
+                        required: "You must select one.",
+                    },
                     options: ["Ms", "Mr", "Mx", "Dr", "Madam", "Lord"],
                 },
             ],
@@ -164,13 +170,20 @@ export const questionSetTwo =
                 required: "Name is required",
             },
         },
-        // {
-        //     fieldType: "NumberInput",
-        //     placeholder: "Age",
-        //     name: "age",
-        //     label: "Age",
-        //     minValue: 0,
-        // },
+        {
+            fieldType: "NumberControl",
+            placeholder: "Age",
+            name: "age",
+            label: "Age",
+            errors: {
+                required: "The age of your pony is required",
+                counter: {
+                    maxValue: 99,
+                    message: "Horses don't live to be 100, yet!",
+                },
+            },
+            minValue: 0,
+        },
         {
             fieldType: "SelectList",
             name: "title",
@@ -204,6 +217,9 @@ export const questionSetThree =
                     fieldType: "TextInput",
                     placeholder: "Pony Name",
                     label: "Pony Name:",
+                    errors: {
+                        required: "Pony name is required",
+                    },
                 },
                 {
                     name: "date",
@@ -216,13 +232,13 @@ export const questionSetThree =
             stepName: 'Company Info',
             step: '2',
             questions: [
-                // {
-                //     fieldType: "NumberInput",
-                //     placeholder: "Age",
-                //     name: "age",
-                //     label: "Age: ",
-                //     minValue: 0,
-                // },
+                {
+                    fieldType: "NumberControl",
+                    placeholder: "Age",
+                    name: "age",
+                    label: "Age: ",
+                    minValue: 0,
+                },
                 {
                     fieldType: "SelectList",
                     name: "title",
@@ -236,13 +252,13 @@ export const questionSetThree =
             stepName: 'Pony Ownership Info',
             step: '3',
             questions: [
-                // {
-                //     fieldType: "NumberInput",
-                //     placeholder: "Age",
-                //     name: "age",
-                //     label: "Age",
-                //     minValue: 0,
-                // },
+                {
+                    fieldType: "NumberControl",
+                    placeholder: "Age",
+                    name: "age",
+                    label: "Age",
+                    minValue: 0,
+                },
             ],
         },
     ];

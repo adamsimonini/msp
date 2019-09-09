@@ -16,8 +16,7 @@
 <script>
     export default {
         name: 'TextInput',
-        components: {
-            
+        components: {       
         },
         props: {
             name: String,
@@ -28,7 +27,8 @@
         data() {
             return {
                 rules: {
-                    required: (value) => !!value || this.errors.required,
+                    // required: (value) => !!value || "apple",
+                    required: (value) => !!value || this.$options.propsData.errors.required,
                 },
             };
         },
