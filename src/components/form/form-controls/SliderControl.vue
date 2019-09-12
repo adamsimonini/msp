@@ -1,31 +1,38 @@
 <template>
   <div>
+    <p>{{ $t("message.stageOfFunding") }}</p>
       <v-slider
-        :label=label
         :color=color
-        min="10"
-        max="50"
-        step="10"
+        min="1"
+        max="5"
+        step="1"
+        :tick-labels="tickLabels"
+        :vertical="vertical"
       ></v-slider>
   </div>
 </template>
 
 <script>
 export default {
-    name: 'RadioControl',
+    name: 'SliderControl',
     props: {
         label: String,
-        options: Array,
         color: String,
         errors: Object,
+        vertical: Boolean,
     },
     data () {
       return {
-        apple: true,
         rules: {
           required: (value) => !!value || this.errors.required,
         },
       };
+    },
+    computed: {
+      // a computed getter
+      tickLabels: function() {
+        return ['all', 'will', 'be', 'revealed', 'friend'];
+      }
     },
   };
 </script>

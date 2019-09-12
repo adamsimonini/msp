@@ -1,12 +1,12 @@
 <template>
     <div class="form-control">
         <v-select
+            :label="$t(`message.${label}`)"
             :items="options"
             :rules="[rules.required]"
-            :placeholder=label
+            :placeholder=placeholder
             color="#FB9514"
             required
-            :label=label
         ></v-select>
     </div>
 </template>
@@ -29,4 +29,5 @@
             };
         },
     };
+    // TODO: this component is generating a translation warning in console when toggling languages
 </script>

@@ -97,7 +97,7 @@
         "questions"
         "pagination";
     grid-template-rows: 5fr 150px;
-    max-width: 500px;
+    min-width: 450px;
 }
 .question-container {
     grid-area: questions;

@@ -1,11 +1,11 @@
 <template>
-    <div>
+    <div id="partnerships">
       <v-container>
         <v-row>
-          <p>Partnerships</p>
+          <p>{{ $t("message.partnerships") }}</p>
           <v-col cols="12" sm="12" md="12">
             <v-text-field
-              label="Number of Partners"
+              :label="$t(`message.partnerAmount`)"
               type="number"
               min=1
               v-model="amount"
@@ -43,22 +43,26 @@
       return {
         amount: 2,
         partnershipQuestions: partnershipForm.partnershipQuestions,
+        // partnershipQuestions: partnershipForm.questionSetOne,
       };
     },
     methods: {
       decrement() {
-        if(this.amount !== 1) {
+        if (this.amount !== 1) {
           this.amount--;
         }
       },
       increment() {
         this.amount++;
-      }
+      },
     },
   };
 </script>
 
 <style scoped>
+#partnerships {
+  width: 100%;
+}
 .button-bar {
   display: flex;
   flex-direction: row;
@@ -78,7 +82,7 @@
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: space-evenly;
-  align-items: flex-start;
+  align-items: space-evenly;
   width: 100%;
   padding-bottom: 20px;
 }

@@ -1,7 +1,7 @@
 <template>
     <div class="form-control">
         <v-text-field
-            :label=label
+            :label="$t(`message.${label}`)"
             v-model="numberValue"
             type="number"
             :rules="[rules.required, rules.counter]"

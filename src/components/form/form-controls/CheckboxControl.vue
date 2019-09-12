@@ -1,11 +1,11 @@
 <template>
   <div>
-    <p>{{label}}</p>
+    <p>{{ $t(`message.${label}`) }}</p>
     <div class="form-control check-control-container">
       <div class="check-control" v-for="(items, i) in options" :key="i">
           <v-checkbox
             :color=color 
-            :label=items
+            :label="$t(`message.${items}`)"
             :value=false
           ></v-checkbox>
       </div>
