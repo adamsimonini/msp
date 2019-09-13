@@ -1,15 +1,15 @@
 <template>
   <div>
-    <p>{{label}}</p>
+    <p>{{ $t(`message.${label}`) }}</p>
     <v-radio-group 
       class="form-control radio-control-container"
       :column=column
       >
       <v-radio
-        v-for="item in options"
+        v-for="(item, i) in options"
         :key=item
-        :label=item
-        :value=item
+        :label="$t(`message.${options[i]}`)"
+        :value=options[i]
         :color=color
       ></v-radio>
     </v-radio-group>

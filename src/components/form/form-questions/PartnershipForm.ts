@@ -55,8 +55,19 @@ export const partnershipQuestions =
                 errors: {
                     required: "",
                 },
-                tickLabels: ['Not started', 'Started', 'Deliberation', 'Letter of intent', 'Funding secured'],
+                tickLabels: ['notStarted', 'started', 'deliberation', 'letterOfIntent', 'fundingSecured'],
                 vertical: true,
+            },
+            {
+                name: "lengthOfPartnership",
+                fieldType: "RadioControl",
+                label: "lengthOfParternship",
+                color: "#FB9D26",
+                errors: {
+                    required: "",
+                },
+                options: ['twoYears', 'threeYears', 'fourYears'],
+                column: true,
             },
         ],
     },

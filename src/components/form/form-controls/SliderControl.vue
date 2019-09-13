@@ -4,10 +4,10 @@
       <v-slider
         :color=color
         min="1"
-        max="5"
-        step="1"
-        :tick-labels="tickLabels"
+        :max="getTickLabels().length"
+        :tick-labels="getTickLabels()"
         :vertical="vertical"
+        tick-size=4
       ></v-slider>
   </div>
 </template>
@@ -19,19 +19,28 @@ export default {
         label: String,
         color: String,
         errors: Object,
+        tickLabels: Array,
         vertical: Boolean,
     },
     data () {
       return {
+        translatedLabels: [],
         rules: {
           required: (value) => !!value || this.errors.required,
         },
       };
     },
-    computed: {
-      // a computed getter
-      tickLabels: function() {
-        return ['all', 'will', 'be', 'revealed', 'friend'];
+    methods: {
+      getTickLabels: function() {
+        let translatedTickLabels = [];
+        for (let i = 0; i < this.tickLabels.length; i++) {
+          let translation = this.$i18n.t(`message.${this.tickLabels[i]}`);
+          translatedTickLabels.push(translation);
+        }
+        return translatedTickLabels;
+      },
+      getValue: function() {
+        return this.getTickLabels()[this.step];
       }
     },
   };
